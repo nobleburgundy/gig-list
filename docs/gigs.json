@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-01T19:50:45.000Z",
+  "fetchedAt": "2026-04-01T20:15:29.563Z",
   "gigs": [
     {
       "id": "4npdqrto6o5thnqlc2t4qp9fs7",
@@ -14,22 +14,6 @@
       "location": "",
       "description": "Indianapolis for Final Four",
       "htmlLink": "https://www.google.com/calendar/event?eid=NG5wZHFydG82bzV0aG5xbGMydDRxcDlmczcgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "hnfbgao21b99svg5e65gpe14jk_20260401",
-      "date": "2026-04-01",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-04-02",
-      "bands": [
-        "feds"
-      ],
-      "venue": "[REMINDER] - update your Feds calendar!",
-      "status": "unmatched",
-      "title": "[REMINDER] - update your Feds calendar!",
-      "location": "",
-      "description": "Reminder for everyone to update the Feds availability calendar.",
-      "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNjA0MDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "11na9kt0hnjhsqebq51dilo9fh",
