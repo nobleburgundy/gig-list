@@ -16,7 +16,7 @@
 
 const CONFIG = {
   calendarId:        'd5s5fcphhafm0nvgcek25o9k18@group.calendar.google.com',
-  daysAhead:         60,   // how many days ahead to include
+  daysAhead:         365,   // how many days ahead to include
   emailSubject:      'Upcoming Gigs',
 
   confirmedKeywords: ['(c)', '(confirmed)', '[c]', '[confirmed]'],
@@ -29,13 +29,12 @@ const CONFIG = {
 
   // Receives all gigs (both bands) — e.g. band leaders, members in both bands
   recipientsAll: [
-    'you@example.com',
+    'nobleburgundy@gmail.com',
   ],
 
   // Receives only their band's gigs — keyed by band id above
   recipientsByBand: {
-    feds: ['fedsonly@example.com'],
-    td:   ['tdonly@example.com'],
+    feds: ['nobleburgundy@gmail.com'],
   },
 };
 
@@ -50,7 +49,7 @@ function sendGigEmails() {
   if (CONFIG.recipientsAll.length) {
     sendEmail(
       CONFIG.recipientsAll,
-      CONFIG.emailSubject,
+      `${CONFIG.emailSubject} — Tumbling Daisies & Federales`,
       buildEmail(gigs, null)
     );
   }
@@ -89,6 +88,13 @@ function parseEvent(event) {
   const desc     = event.getDescription() || '';
   const isAllDay = event.isAllDayEvent();
 
+  // Construct a direct link to the calendar event
+  let url = null;
+  try {
+    const eid = Utilities.base64Encode(event.getId() + ' ' + CONFIG.calendarId);
+    url = 'https://www.google.com/calendar/event?eid=' + eid;
+  } catch(e) {}
+
   return {
     title:     title,
     venue:     parseVenue(title),
@@ -98,6 +104,7 @@ function parseEvent(event) {
     endDate:   isAllDay ? event.getAllDayEndDate()   : event.getEndTime(),
     isAllDay:  isAllDay,
     location:  event.getLocation() || '',
+    url:       url,
   };
 }
 
@@ -132,6 +139,7 @@ function parseVenue(title) {
 // EMAIL FORMATTING
 // ================================================================
 
+const DAYS_SHORT  = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const DAYS_LONG   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const MONTHS_LONG = ['January','February','March','April','May','June','July',
                      'August','September','October','November','December'];
@@ -140,27 +148,21 @@ function formatDate(date) {
   return `${DAYS_LONG[date.getDay()]}, ${MONTHS_LONG[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 }
 
+function formatDateShort(date) {
+  return `${MONTHS_LONG[date.getMonth()].slice(0,3)} ${date.getDate()}`;
+}
+
 function buildEmail(gigs, band) {
   const heading   = band ? `${band.name} — Upcoming Gigs` : 'Upcoming Gigs';
   const subhead   = `Next ${CONFIG.daysAhead} days`;
-  const confirmed = gigs.filter(g => g.status === 'confirmed');
-  const holds     = gigs.filter(g => g.status === 'hold');
-
   let body = '';
 
   if (!gigs.length) {
-    body = `<p style="padding:24px 32px;margin:0;font-size:14px;color:#666666;">
-              No upcoming gigs in the next ${CONFIG.daysAhead} days.
-            </p>`;
+    body = `<p style="margin:0;font-size:13px;color:#666666;">No upcoming gigs in the next ${CONFIG.daysAhead} days.</p>`;
   } else {
-    if (confirmed.length) {
-      body += sectionHeader('Confirmed');
-      confirmed.forEach(g => { body += gigRow(g); });
-    }
-    if (holds.length) {
-      body += sectionHeader('On Hold');
-      holds.forEach(g => { body += gigRow(g); });
-    }
+    body += `<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;">`;
+    gigs.forEach(g => { body += gigRow(g); });
+    body += `</table>`;
   }
 
   return `<!DOCTYPE html>
@@ -179,17 +181,17 @@ function buildEmail(gigs, band) {
         </td>
       </tr>
 
-      <!-- Gig rows -->
-      <tr><td style="padding:8px 0 16px;">${body}</td></tr>
-
       <!-- Reminder -->
       <tr>
-        <td style="background:#f9f9f9;border-top:1px solid #e0e0e0;padding:18px 32px;">
-          <p style="margin:0;font-size:13px;color:#666666;">
-            Remember to update your Federales calendar.
+        <td style="background:#f9f9f9;border-bottom:1px solid #e0e0e0;padding:18px 32px;">
+          <p style="margin:0;font-size:14px;font-weight:bold;color:#111111;">
+            REMINDER: Update your calendars.
           </p>
         </td>
       </tr>
+
+      <!-- Gig list -->
+      <tr><td style="padding:24px 32px;">${body}</td></tr>
 
       <!-- Footer -->
       <tr>
@@ -207,43 +209,29 @@ function buildEmail(gigs, band) {
 </html>`;
 }
 
-function sectionHeader(label) {
-  return `<div style="padding:16px 32px 8px;font-size:10px;letter-spacing:2px;
-            text-transform:uppercase;color:#bbbbbb;border-bottom:1px solid #f0f0f0;">${label}</div>`;
-}
+const TD = 'padding:5px 8px 5px 0;font-size:12px;line-height:1.3;vertical-align:top;border-bottom:1px solid #f0f0f0;white-space:nowrap;';
+const TD_WRAP = 'padding:5px 8px 5px 0;font-size:12px;line-height:1.3;vertical-align:top;border-bottom:1px solid #f0f0f0;';
 
 function gigRow(gig) {
-  const statusColor = gig.status === 'hold' ? '#c47c00' : '#1db954';
-  const statusLabel = gig.status === 'hold' ? 'Hold' : 'Confirmed';
-  const bandNames   = gig.bands
+  const title = escHtml(gig.venue || gig.title);
+  const linked = gig.url
+    ? `<a href="${gig.url}" style="color:#111111;text-decoration:none;">${title}</a>`
+    : title;
+  const bandNames = gig.bands
     .map(id => CONFIG.bands.find(b => b.id === id))
     .filter(Boolean)
-    .map(b => b.name)
+    .map(b => b.short || b.name)
     .join(' & ');
+  const statusLabel = gig.status === 'hold' ? 'Hold' : 'Confirmed';
+  const statusColor = gig.status === 'hold' ? '#c47c00' : '#1db954';
 
-  return `
-    <table width="100%" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #f0f0f0;">
-      <tr>
-        <td style="padding:14px 32px;">
-          <div style="font-size:11px;color:#999999;letter-spacing:1px;text-transform:uppercase;
-                      margin-bottom:5px;">${escHtml(formatDate(gig.startDate))}</div>
-          <div style="font-size:16px;font-weight:bold;color:#111111;margin-bottom:3px;">
-            ${escHtml(gig.venue || gig.title)}
-          </div>
-          ${gig.location
-            ? `<div style="font-size:12px;color:#666666;margin-top:2px;">${escHtml(gig.location)}</div>`
-            : ''}
-          ${bandNames
-            ? `<div style="font-size:11px;color:#aaaaaa;margin-top:5px;letter-spacing:1px;
-                           text-transform:uppercase;">${escHtml(bandNames)}</div>`
-            : ''}
-        </td>
-        <td align="right" style="padding:14px 32px;vertical-align:middle;white-space:nowrap;">
-          <span style="font-size:10px;letter-spacing:1px;text-transform:uppercase;
-                       font-weight:bold;color:${statusColor};">${statusLabel}</span>
-        </td>
-      </tr>
-    </table>`;
+  return `<tr>
+    <td style="${TD}color:#999999;">${escHtml(DAYS_SHORT[gig.startDate.getDay()])}</td>
+    <td style="${TD}color:#666666;">${escHtml(formatDateShort(gig.startDate))}</td>
+    <td style="${TD_WRAP}color:#111111;">${linked}</td>
+    <td style="${TD}color:#999999;">${escHtml(bandNames)}</td>
+    <td style="${TD}color:${statusColor};font-weight:bold;">${statusLabel}</td>
+  </tr>`;
 }
 
 function escHtml(str) {
