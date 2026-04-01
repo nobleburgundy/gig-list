@@ -91,7 +91,9 @@ function parseEvent(event) {
   // Construct a direct link to the calendar event
   let url = null;
   try {
-    const eid = Utilities.base64Encode(event.getId() + ' ' + CONFIG.calendarId);
+    const rawId = event.getId().replace(/@google\.com$/, '');
+    const eid = Utilities.base64Encode(rawId + ' ' + CONFIG.calendarId)
+      .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
     url = 'https://www.google.com/calendar/event?eid=' + eid;
   } catch(e) {}
 
