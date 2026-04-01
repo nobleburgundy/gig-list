@@ -2,4 +2,3 @@ node_modules/
 .env
 data/
 feds-calendar-alerts*.json
-docs/gigs.json
