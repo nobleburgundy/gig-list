@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gig List</title>
+  <style>
+    :root {
+      --bg:     #ffffff;
+      --bg2:    #f5f5f5;
+      --text:   #111111;
+      --text2:  #666666;
+      --text3:  #bbbbbb;
+      --red:    #b5291c;
+      --hold:   #c47c00;
+      --border: #e0e0e0;
+      --accent: #1db954;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      line-height: 1.4;
+      overscroll-behavior: none;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    /* ---- Layout ---- */
+    #app {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 10%;
+      right: 10%;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .view {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .view.hidden { display: none; }
+
+    @media (max-width: 700px) {
+      #app {
+        left: 0;
+        right: 0;
+        border-left: none;
+        border-right: none;
+      }
+    }
+
+    .inner {
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .scroll-area {
+      flex: 1;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+    }
+
+    /* ---- Top Bar ---- */
+    .top-bar {
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .top-bar-inner {
+      display: flex;
+      align-items: center;
+      padding: 18px 24px 14px;
+      max-width: 640px;
+      margin: 0 auto;
+      gap: 16px;
+    }
+    .top-bar-title {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text2);
+    }
+    .top-bar-stats {
+      flex: 1;
+      padding-left: 14px;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--text3);
+    }
+    .top-bar-stats .stat-confirmed { color: var(--accent); }
+    .top-bar-stats .stat-hold { color: var(--hold); }
+    .top-bar-stats .stat-sep { color: var(--border); margin: 0 5px; }
+
+    /* ---- Buttons ---- */
+    .btn {
+      width: 100%;
+      padding: 13px;
+      background: var(--text);
+      border: none;
+      color: var(--bg);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+    }
+    .btn:active { opacity: 0.7; }
+    .btn.secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text2);
+    }
+    .btn.danger {
+      background: transparent;
+      border: 1px solid var(--red);
+      color: var(--red);
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      color: var(--text3);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 0;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .icon-btn:active { color: var(--text); }
+    #btn-settings { font-size: 22px; }
+
+    /* ---- Inputs ---- */
+    .field {
+      width: 100%;
+      padding: 10px 0;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .field::placeholder { color: var(--text3); }
+    .field:focus { border-bottom-color: var(--text); }
+
+    .field-label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 4px;
+      display: block;
+    }
+    .field-wrap { margin-bottom: 24px; position: relative; }
+
+    .save-indicator {
+      position: absolute;
+      right: 0;
+      bottom: 12px;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+    }
+    .save-indicator.show { opacity: 1; }
+
+    /* ---- Auth View ---- */
+    #view-auth {
+      align-items: center;
+      justify-content: center;
+    }
+    .auth-inner {
+      width: 100%;
+      max-width: 320px;
+      padding: 0 24px;
+    }
+    .auth-wordmark {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .auth-subtitle {
+      font-size: 11px;
+      color: var(--text3);
+      letter-spacing: 0.06em;
+      margin-bottom: 40px;
+    }
+    .auth-error {
+      margin-top: 16px;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: var(--red);
+      min-height: 16px;
+    }
+
+    /* ---- List View layout ---- */
+    .list-body {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+    }
+
+    /* ---- Filter rail ---- */
+    .filter-rail {
+      width: 68px;
+      flex-shrink: 0;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      padding-top: 14px;
+    }
+    .filter-opt {
+      padding: 10px 0;
+      text-align: center;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text3);
+      cursor: pointer;
+      border-left: 2px solid transparent;
+      transition: color 0.1s;
+      user-select: none;
+    }
+    .filter-opt:active { color: var(--text); }
+    .filter-opt.active {
+      color: var(--text);
+      border-left-color: var(--accent);
+    }
+    .filter-sep {
+      height: 1px;
+      background: var(--border);
+      margin: 8px 14px;
+    }
+
+    /* ---- List main (right of filter rail) ---- */
+    .list-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    /* ---- Column headers ---- */
+    .gig-list-header {
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .gig-list-header-inner {
+      display: flex;
+      align-items: center;
+      padding: 10px 24px;
+      gap: 0;
+    }
+    .col-spacer {
+      width: 26px;
+      flex-shrink: 0;
+    }
+    .col-date {
+      width: 118px;
+      flex-shrink: 0;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text3);
+    }
+    .col-venue {
+      flex: 1;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text3);
+      min-width: 0;
+    }
+    .col-band {
+      width: 54px;
+      flex-shrink: 0;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text3);
+    }
+    .col-status {
+      width: 82px;
+      flex-shrink: 0;
+      text-align: right;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text3);
+    }
+
+
+    .month-header {
+      padding: 10px 24px 8px;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text2);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .gig-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .gig-row {
+      display: flex;
+      align-items: flex-start;
+      padding: 14px 24px;
+      transition: background 0.1s;
+      cursor: pointer;
+      user-select: none;
+    }
+    .gig-row:active { background: var(--bg2); }
+
+    .gig-toggle {
+      flex-shrink: 0;
+      font-size: 14px;
+      color: var(--text3);
+      margin-right: 12px;
+      padding-top: 1px;
+      transform: rotate(-90deg);
+      transition: transform 0.2s;
+      line-height: 1;
+    }
+    .gig-item.expanded .gig-toggle { transform: rotate(0deg); }
+
+    .gig-detail {
+      display: none;
+      border-top: 1px solid var(--border);
+      background: var(--bg2);
+    }
+    .gig-item.expanded .gig-detail { display: block; }
+
+    .detail-row {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      padding: 10px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .detail-row:last-of-type { border-bottom: none; }
+    .detail-label {
+      width: 68px;
+      flex-shrink: 0;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text3);
+      padding-top: 1px;
+    }
+    .detail-value {
+      flex: 1;
+      font-size: 12px;
+      letter-spacing: 0.03em;
+      color: var(--text2);
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.6;
+    }
+    .detail-value.muted { color: var(--text3); }
+    .detail-row-notes .detail-value {
+      color: var(--text);
+      font-size: 13px;
+    }
+    .detail-link {
+      display: inline-block;
+      margin: 12px 24px 14px;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text3);
+      text-decoration: none;
+    }
+    .detail-link:active { color: var(--text); }
+
+    .gig-date {
+      width: 118px;
+      flex-shrink: 0;
+      font-size: 11px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text2);
+      padding-top: 1px;
+    }
+    .gig-date .year-tag {
+      font-size: 10px;
+      color: var(--text3);
+      letter-spacing: 0.04em;
+    }
+    .day-of-span {
+      color: var(--text3);
+      letter-spacing: 0.04em;
+    }
+    .when-day-of {
+      color: var(--text3);
+    }
+
+    .gig-venue {
+      flex: 1;
+      font-size: 13px;
+      letter-spacing: 0.03em;
+      padding-right: 12px;
+      padding-top: 1px;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .gig-band {
+      width: 54px;
+      flex-shrink: 0;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text2);
+      padding-top: 2px;
+    }
+    .gig-band.multi { color: var(--text3); }
+
+    .gig-status {
+      width: 82px;
+      flex-shrink: 0;
+      text-align: right;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding-top: 2px;
+    }
+    .gig-status.confirmed { color: var(--accent); }
+    .gig-status.hold { color: var(--hold); }
+
+    .list-state-row {
+      padding: 24px;
+      font-size: 12px;
+      color: var(--text3);
+      letter-spacing: 0.06em;
+    }
+
+    /* ---- View toggle ---- */
+    .view-toggle {
+      display: flex;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .view-toggle-btn {
+      background: none;
+      border: none;
+      padding: 5px 10px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text3);
+      cursor: pointer;
+      transition: background 0.1s, color 0.1s;
+    }
+    .view-toggle-btn + .view-toggle-btn {
+      border-left: 1px solid var(--border);
+    }
+    .view-toggle-btn.active {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    /* ---- Plain list view ---- */
+    .plain-list-row {
+      display: flex;
+      gap: 0;
+      padding: 11px 24px;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+    .pl-day {
+      width: 36px;
+      flex-shrink: 0;
+      font-size: 10px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text3);
+    }
+    .pl-date {
+      width: 82px;
+      flex-shrink: 0;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text2);
+    }
+    .pl-title {
+      flex: 1;
+      font-size: 12px;
+      letter-spacing: 0.03em;
+      color: var(--text);
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-right: 12px;
+    }
+    .pl-band {
+      width: 54px;
+      flex-shrink: 0;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text2);
+    }
+    .pl-status {
+      width: 82px;
+      flex-shrink: 0;
+      text-align: right;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .pl-status.confirmed { color: var(--accent); }
+    .pl-status.hold { color: var(--hold); }
+
+    @media (max-width: 540px) {
+      .pl-band { display: none; }
+      .pl-day { width: 28px; font-size: 9px; }
+      .pl-date { width: 66px; font-size: 10px; }
+      .pl-title { font-size: 11px; }
+      .pl-status { width: 58px; font-size: 9px; }
+      .plain-list-row { padding-left: 12px; padding-right: 12px; }
+    }
+
+    /* ---- Mobile ---- */
+    @media (max-width: 540px) {
+      .filter-rail {
+        width: 44px;
+      }
+      .filter-opt {
+        font-size: 9px;
+        letter-spacing: 0.06em;
+        padding: 10px 0;
+      }
+      .gig-list-header-inner,
+      .gig-row {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+      .col-date,
+      .gig-date {
+        width: 70px;
+        font-size: 9px;
+      }
+      .col-band,
+      .gig-band {
+        display: none;
+      }
+      .col-venue,
+      .gig-venue {
+        font-size: 11px;
+      }
+      .col-status,
+      .gig-status {
+        width: 58px;
+        font-size: 9px;
+      }
+      .month-header {
+        padding: 8px 12px 6px;
+      }
+    }
+
+    /* ---- Settings View ---- */
+    .settings-section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 24px 12px;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text3);
+      border-top: 1px solid var(--border);
+      cursor: pointer;
+      user-select: none;
+    }
+    .settings-chevron {
+      font-size: 14px;
+      line-height: 1;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+      margin-left: auto;
+    }
+    .settings-section-header.collapsed .settings-chevron { transform: rotate(-90deg); }
+    .settings-body { padding: 8px 24px 24px; }
+    .settings-body.collapsed { display: none; }
+
+    .settings-danger {
+      padding: 24px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ---- Select ---- */
+    .field-select {
+      width: 100%;
+      padding: 10px 0;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      outline: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+    .field-select:focus { border-bottom-color: var(--text); }
+
+    /* ---- Helper text ---- */
+    .field-hint {
+      font-size: 11px;
+      color: var(--text3);
+      letter-spacing: 0.04em;
+      margin-top: 6px;
+    }
+
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <!-- AUTH VIEW -->
+  <div id="view-auth" class="view hidden">
+    <div class="auth-inner">
+      <div class="auth-wordmark">Gig List</div>
+      <div class="auth-subtitle">performance calendar</div>
+      <a class="btn" href="/auth">Connect Google Calendar</a>
+      <div class="auth-error" id="auth-error"></div>
+    </div>
+  </div>
+
+  <!-- LIST VIEW -->
+  <div id="view-list" class="view hidden">
+    <div class="top-bar">
+      <div class="top-bar-inner">
+        <span class="top-bar-title">Gig List</span>
+        <span class="top-bar-stats" id="gig-stats"></span>
+        <div class="view-toggle">
+          <button class="view-toggle-btn active" id="btn-mode-gig">Gig</button>
+          <button class="view-toggle-btn" id="btn-mode-list">List</button>
+        </div>
+        <button class="icon-btn" id="btn-refresh" title="Refresh">&#8635;</button>
+        <button class="icon-btn" id="btn-settings" title="Settings">&#9881;</button>
+      </div>
+    </div>
+    <div class="list-body">
+      <!-- Band filter rail -->
+      <div class="filter-rail" id="filter-rail"></div>
+      <!-- Event list -->
+      <div class="list-main">
+        <div class="gig-list-header">
+          <div class="gig-list-header-inner">
+            <span class="col-spacer"></span>
+            <span class="col-date">Date</span>
+            <span class="col-venue">Title</span>
+            <span class="col-band">Band</span>
+            <span class="col-status">Status</span>
+          </div>
+        </div>
+        <div class="scroll-area" id="gig-list-scroll">
+          <div id="gig-list-content">
+            <div class="list-state-row">loading&hellip;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SETTINGS VIEW -->
+  <div id="view-settings" class="view hidden">
+    <div class="top-bar">
+      <div class="top-bar-inner">
+        <button class="icon-btn" id="btn-back">&larr;</button>
+        <span class="top-bar-title">Settings</span>
+      </div>
+    </div>
+    <div class="scroll-area">
+      <div style="max-width:640px; margin:0 auto;">
+
+        <!-- Calendar -->
+        <div class="settings-section-header" data-target="section-calendar">
+          Calendar
+          <span class="settings-chevron">&#9662;</span>
+        </div>
+        <div class="settings-body" id="section-calendar">
+          <div class="field-wrap">
+            <label class="field-label" for="s-calendarId">Calendar ID</label>
+            <input class="field" id="s-calendarId" type="text"
+              placeholder="d5s5fcphhafm0nvgcek25o9k18@group.calendar.google.com"
+              data-setting="calendarId">
+            <span class="save-indicator" id="si-calendarId">saved</span>
+            <div class="field-hint">Use "primary" for your main calendar, or paste a calendar ID from Google Calendar settings.</div>
+          </div>
+          <div class="field-wrap">
+            <label class="field-label" for="s-daysBack">Days back</label>
+            <input class="field" id="s-daysBack" type="number" min="0" max="365"
+              placeholder="0"
+              data-setting="daysBack">
+            <span class="save-indicator" id="si-daysBack">saved</span>
+          </div>
+          <div class="field-wrap">
+            <label class="field-label" for="s-daysAhead">Days ahead</label>
+            <input class="field" id="s-daysAhead" type="number" min="1" max="730"
+              placeholder="365"
+              data-setting="daysAhead">
+            <span class="save-indicator" id="si-daysAhead">saved</span>
+          </div>
+          <div class="field-wrap">
+            <label class="field-label" for="s-venueSource">Venue source</label>
+            <select class="field-select" id="s-venueSource" data-setting="venueSource">
+              <option value="title">Event title</option>
+              <option value="location">Location field</option>
+            </select>
+            <span class="save-indicator" id="si-venueSource">saved</span>
+            <div class="field-hint">Where to read the venue name from.</div>
+          </div>
+          <div class="field-wrap" id="wrap-separator">
+            <label class="field-label" for="s-venueSummarySeparator">Title separator</label>
+            <input class="field" id="s-venueSummarySeparator" type="text"
+              placeholder=" @ "
+              data-setting="venueSummarySeparator">
+            <span class="save-indicator" id="si-venueSummarySeparator">saved</span>
+            <div class="field-hint">Split the event title on this character(s) — the part after the separator becomes the venue. Leave blank to use the full title.</div>
+          </div>
+        </div>
+
+        <!-- Hold -->
+        <div class="settings-section-header" data-target="section-hold">
+          Hold
+          <span class="settings-chevron">&#9662;</span>
+        </div>
+        <div class="settings-body" id="section-hold">
+          <div class="field-wrap">
+            <label class="field-label" for="s-holdKeywords">Hold keywords</label>
+            <input class="field" id="s-holdKeywords" type="text"
+              placeholder="(h), (hold)"
+              data-setting="holdKeywords">
+            <span class="save-indicator" id="si-holdKeywords">saved</span>
+            <div class="field-hint">Comma-separated, case-insensitive. Matches anywhere in the event title or description — e.g. "Show at Blue Note (H)" or "(Hold) Jazz Night".</div>
+          </div>
+        </div>
+
+        <!-- Confirmed -->
+        <div class="settings-section-header" data-target="section-confirmed">
+          Confirmed
+          <span class="settings-chevron">&#9662;</span>
+        </div>
+        <div class="settings-body" id="section-confirmed">
+          <div class="field-wrap">
+            <label class="field-label" for="s-confirmedKeywords">Confirmed keywords</label>
+            <input class="field" id="s-confirmedKeywords" type="text"
+              placeholder="(c), (confirmed)"
+              data-setting="confirmedKeywords">
+            <span class="save-indicator" id="si-confirmedKeywords">saved</span>
+            <div class="field-hint">Comma-separated, case-insensitive. Confirmed takes priority over Hold if both match. When this is set, events matching neither keyword are hidden from the list.</div>
+          </div>
+        </div>
+
+        <!-- Bands -->
+        <div class="settings-section-header" data-target="section-bands">
+          Bands
+          <span class="settings-chevron">&#9662;</span>
+        </div>
+        <div class="settings-body" id="section-bands">
+          <div id="bands-settings-fields">
+            <!-- populated by populateBandFields() -->
+          </div>
+        </div>
+
+        <!-- Danger zone -->
+        <div class="settings-danger">
+          <a class="btn danger" href="/auth/logout">Disconnect Google Account</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ---- State ----
+    let currentView = null;
+    let gigsData = [];
+    let activeBandFilter = 'all'; // 'all' | band id
+    let displayMode = 'gig'; // 'gig' | 'list'
+
+    // ---- Routing ----
+    function showView(id) {
+      document.querySelectorAll('.view').forEach(v => v.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+      currentView = id;
+    }
+
+    // ---- Date / Time Helpers ----
+    const MONTHS_SHORT = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+    const MONTHS_LONG  = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const DAYS_SHORT   = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+    const DAYS_LONG    = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+    function parseD(dateStr) {
+      if (!dateStr) return null;
+      return /^\d{4}-\d{2}-\d{2}$/.test(dateStr)
+        ? new Date(dateStr + 'T00:00:00')
+        : new Date(dateStr);
+    }
+
+    function eventDateMs(dateStr) {
+      const d = parseD(dateStr);
+      return d ? d.getTime() : 0;
+    }
+
+    // Returns { dateStr, yearTag } for list rows — day of week prefixed
+    function formatDateParts(dateStr) {
+      const d = parseD(dateStr);
+      if (!d) return { dateStr: '—', yearTag: '' };
+      const month = MONTHS_SHORT[d.getMonth()];
+      const day   = String(d.getDate()).padStart(2, '0');
+      const year  = d.getFullYear();
+      const currentYear = new Date().getFullYear();
+      const yearTag = year !== currentYear
+        ? ` <span class="year-tag">'${String(year).slice(2)}</span>`
+        : '';
+      return { dateStr: `${DAYS_SHORT[d.getDay()]} ${month} ${day}`, yearTag };
+    }
+
+    // Full readable date for detail panel
+    function formatFullDate(dateStr) {
+      const d = parseD(dateStr);
+      if (!d) return '—';
+      return `${DAYS_LONG[d.getDay()]}, ${MONTHS_LONG[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+    }
+
+    // e.g. "April 2026" — used for month grouping
+    function getMonthLabel(dateStr) {
+      const d = parseD(dateStr);
+      if (!d) return '';
+      return `${MONTHS_LONG[d.getMonth()]} ${d.getFullYear()}`;
+    }
+
+    function formatTimeRange(startDT, endDT) {
+      if (!startDT) return null; // all-day event
+      const fmt = dt => new Date(dt).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+      return endDT ? `${fmt(startDT)} – ${fmt(endDT)}` : fmt(startDT);
+    }
+
+    // Strip HTML from Google Calendar descriptions
+    function stripHtml(str) {
+      if (!str) return '';
+      return str
+        .replace(/<br\s*\/?>/gi, '\n')
+        .replace(/<\/p>/gi, '\n')
+        .replace(/<[^>]+>/g, '')
+        .replace(/&nbsp;/g, ' ')
+        .replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim();
+    }
+
+    // ---- Filter rail ----
+    function renderFilterRail() {
+      const rail = document.getElementById('filter-rail');
+      if (!rail) return;
+      const bands = (settingsData.bands || []);
+
+      let html = `<div class="filter-opt active" data-band="all">All</div>`;
+      if (bands.length) {
+        html += `<div class="filter-sep"></div>`;
+        bands.forEach(b => {
+          html += `<div class="filter-opt" data-band="${escHtml(b.id)}">${escHtml(b.short || b.name)}</div>`;
+        });
+      }
+      rail.innerHTML = html;
+
+      rail.querySelectorAll('.filter-opt').forEach(opt => {
+        opt.addEventListener('click', () => {
+          activeBandFilter = opt.dataset.band;
+          rail.querySelectorAll('.filter-opt').forEach(o => o.classList.toggle('active', o === opt));
+          renderGigs(gigsData);
+        });
+      });
+    }
+
+    // Returns display label + CSS class for the band column cell
+    function bandLabel(gig) {
+      const bands = settingsData.bands || [];
+      const matches = (gig.bands || [])
+        .map(id => bands.find(b => b.id === id))
+        .filter(Boolean);
+      if (matches.length === 0) return { text: '—', cls: 'gig-band' };
+      if (matches.length === 1) return { text: matches[0].short || matches[0].name, cls: 'gig-band' };
+      return { text: 'Both', cls: 'gig-band multi' };
+    }
+
+    // ---- Multi-day expansion ----
+    // Returns one entry per calendar day for events spanning multiple days.
+    function expandMultiDay(gig) {
+      let endExcl = null;
+
+      if (gig.endDate) {
+        // All-day: Google's end.date is already exclusive (Apr 12–14 → end = Apr 15)
+        endExcl = parseD(gig.endDate + 'T00:00:00');
+      } else if (gig.endTime) {
+        // Timed: only expand if end is meaningfully on a later calendar day (not just overnight)
+        const startD = parseD(gig.date);
+        const endD   = new Date(gig.endTime);
+        const startMid = new Date(startD.getFullYear(), startD.getMonth(), startD.getDate());
+        const endMid   = new Date(endD.getFullYear(),   endD.getMonth(),   endD.getDate());
+        const spanDays = Math.round((endMid - startMid) / 86400000);
+        // Expand if 2+ calendar days apart, or 1 day apart but ends after noon (not just overnight)
+        if (spanDays >= 2 || (spanDays === 1 && endD.getHours() >= 12)) {
+          endExcl = new Date(endMid.getTime() + 86400000);
+        }
+      }
+
+      if (!endExcl) return [gig];
+
+      const startMid = new Date(parseD(gig.date));
+      startMid.setHours(0, 0, 0, 0);
+      const totalDays = Math.round((endExcl - startMid) / 86400000);
+      if (totalDays <= 1) return [gig];
+
+      return Array.from({ length: totalDays }, (_, i) => {
+        const d  = new Date(startMid);
+        d.setDate(d.getDate() + i);
+        const y  = d.getFullYear();
+        const mo = String(d.getMonth() + 1).padStart(2, '0');
+        const dd = String(d.getDate()).padStart(2, '0');
+        return {
+          ...gig,
+          date:      `${y}-${mo}-${dd}`,
+          startTime: i === 0              ? gig.startTime : null,
+          endTime:   i === totalDays - 1  ? gig.endTime   : null,
+          _dayOf:    i + 1,
+          _totalDays: totalDays,
+        };
+      });
+    }
+
+    // ---- Render (dispatch by mode) ----
+    function renderGigs(gigs) {
+      const header = document.querySelector('.gig-list-header');
+      if (displayMode === 'list') {
+        if (header) header.style.display = 'none';
+        renderListView(gigs);
+        return;
+      }
+      if (header) header.style.display = '';
+      renderGigView(gigs);
+    }
+
+    function renderGigView(gigs) {
+      const container = document.getElementById('gig-list-content');
+
+      const now = Date.now();
+      // Expand multi-day events, filter to upcoming matched events, then apply band filter
+      const upcoming = gigs
+        .filter(g => g.status !== 'unmatched')
+        .flatMap(g => expandMultiDay(g))
+        .filter(g => eventDateMs(g.date) >= now)
+        .filter(g => activeBandFilter === 'all' || (g.bands || []).includes(activeBandFilter));
+
+      const statsEl = document.getElementById('gig-stats');
+
+      if (!upcoming.length) {
+        if (statsEl) statsEl.innerHTML = '';
+        container.innerHTML = '<div class="list-state-row">no upcoming events</div>';
+        return;
+      }
+
+      // Stats count unique events (not individual days of multi-day spans)
+      const nConfirmed = new Set(upcoming.filter(g => g.status === 'confirmed').map(g => g.id)).size;
+      const nHold      = new Set(upcoming.filter(g => g.status === 'hold').map(g => g.id)).size;
+      const statsParts = [];
+      if (nConfirmed) statsParts.push(`<span class="stat-confirmed">${nConfirmed} confirmed</span>`);
+      if (nHold)      statsParts.push(`<span class="stat-hold">${nHold} on hold</span>`);
+      if (statsEl) statsEl.innerHTML = statsParts.join('<span class="stat-sep">·</span>');
+
+      let html = '';
+
+      let currentMonth = null;
+
+      for (const gig of upcoming) {
+        const month = getMonthLabel(gig.date);
+        if (month !== currentMonth) {
+          currentMonth = month;
+          html += `<div class="month-header">${month}</div>`;
+        }
+
+        const statusClass = gig.status === 'hold' ? 'hold' : 'confirmed';
+        const statusLabel = gig.status === 'hold' ? 'Hold' : 'Confirmed';
+        const venue = gig.venue || gig.title || '—';
+        const { dateStr, yearTag } = formatDateParts(gig.date);
+        const timeStr = formatTimeRange(gig.startTime, gig.endTime);
+        const isMultiDay = gig._totalDays > 1;
+
+        // For multi-day events append the day counter inline
+        const dateDisplay = isMultiDay
+          ? `${dateStr}${yearTag} <span class="day-of-span">${gig._dayOf}/${gig._totalDays}</span>`
+          : `${dateStr}${yearTag}`;
+
+        // ---- Detail panel ----
+        let detailRows = '';
+
+        // When + time + day-of-span
+        const fullDate = formatFullDate(gig.date);
+        let whenStr = escHtml(fullDate);
+        if (timeStr)    whenStr += ` &nbsp;·&nbsp; ${escHtml(timeStr)}`;
+        if (isMultiDay) whenStr += ` &nbsp;·&nbsp; <span class="when-day-of">day ${gig._dayOf} of ${gig._totalDays}</span>`;
+        detailRows += `<div class="detail-row"><span class="detail-label">When</span><span class="detail-value">${whenStr}</span></div>`;
+
+        // Notes — most important for musicians
+        if (gig.description) {
+          const notes = stripHtml(gig.description);
+          if (notes) {
+            detailRows += `<div class="detail-row detail-row-notes"><span class="detail-label">Notes</span><span class="detail-value">${escHtml(notes)}</span></div>`;
+          }
+        }
+
+        // Address
+        if (gig.location) {
+          detailRows += `<div class="detail-row"><span class="detail-label">Address</span><span class="detail-value">${escHtml(gig.location)}</span></div>`;
+        }
+
+        // Raw title (reference)
+        detailRows += `<div class="detail-row"><span class="detail-label">Event</span><span class="detail-value muted">${escHtml(gig.title || '—')}</span></div>`;
+
+        const calLink = gig.htmlLink
+          ? `<a class="detail-link" href="${gig.htmlLink}" target="_blank" rel="noopener">Open in Google Calendar &#8599;</a>`
+          : '';
+
+        // Unique per-day ID so each day expands independently
+        const itemId = isMultiDay ? `${gig.id}_${gig._dayOf}` : gig.id;
+
+        html += `
+          <div class="gig-item" data-id="${escHtml(itemId)}">
+            <div class="gig-row">
+              <div class="gig-toggle">&#9660;</div>
+              <div class="gig-date">${dateDisplay}</div>
+              <div class="gig-venue">${escHtml(venue)}</div>
+              <div class="${bandLabel(gig).cls}">${escHtml(bandLabel(gig).text)}</div>
+              <div class="gig-status ${statusClass}">${statusLabel}</div>
+            </div>
+            <div class="gig-detail">
+              ${detailRows}
+              ${calLink}
+            </div>
+          </div>`;
+      }
+
+      container.innerHTML = html;
+
+      container.querySelectorAll('.gig-row').forEach(row => {
+        row.addEventListener('click', () => {
+          row.closest('.gig-item').classList.toggle('expanded');
+        });
+      });
+    }
+
+    // ---- Render plain list ----
+    function renderListView(gigs) {
+      const container = document.getElementById('gig-list-content');
+      const header    = document.querySelector('.gig-list-header');
+      if (header) header.style.display = 'none';
+
+      const now = Date.now();
+      const upcoming = gigs
+        .filter(g => g.status !== 'unmatched')
+        .flatMap(g => expandMultiDay(g))
+        .filter(g => eventDateMs(g.date) >= now)
+        .filter(g => activeBandFilter === 'all' || (g.bands || []).includes(activeBandFilter));
+
+      const statsEl = document.getElementById('gig-stats');
+
+      if (!upcoming.length) {
+        if (statsEl) statsEl.innerHTML = '';
+        container.innerHTML = '<div class="list-state-row">no upcoming events</div>';
+        return;
+      }
+
+      const nConfirmed = new Set(upcoming.filter(g => g.status === 'confirmed').map(g => g.id)).size;
+      const nHold      = new Set(upcoming.filter(g => g.status === 'hold').map(g => g.id)).size;
+      const statsParts = [];
+      if (nConfirmed) statsParts.push(`<span class="stat-confirmed">${nConfirmed} confirmed</span>`);
+      if (nHold)      statsParts.push(`<span class="stat-hold">${nHold} on hold</span>`);
+      if (statsEl) statsEl.innerHTML = statsParts.join('<span class="stat-sep">·</span>');
+
+      let html = '';
+      for (const gig of upcoming) {
+        const d = parseD(gig.date);
+        const dayStr   = d ? DAYS_SHORT[d.getDay()] : '—';
+        const month    = d ? MONTHS_SHORT[d.getMonth()] : '—';
+        const dayNum   = d ? String(d.getDate()).padStart(2, '0') : '—';
+        const year     = d ? d.getFullYear() : '';
+        const currentYear = new Date().getFullYear();
+        const dateStr  = year !== currentYear ? `${month} ${dayNum} '${String(year).slice(2)}` : `${month} ${dayNum}`;
+        const title    = escHtml(gig.venue || gig.title || '—');
+        const bl       = bandLabel(gig);
+        const statusClass = gig.status === 'hold' ? 'hold' : 'confirmed';
+        const statusLabel = gig.status === 'hold' ? 'Hold' : 'Confirmed';
+
+        html += `<div class="plain-list-row">
+          <div class="pl-day">${dayStr}</div>
+          <div class="pl-date">${dateStr}</div>
+          <div class="pl-title">${title}</div>
+          <div class="pl-band">${escHtml(bl.text)}</div>
+          <div class="pl-status ${statusClass}">${statusLabel}</div>
+        </div>`;
+      }
+      container.innerHTML = html;
+    }
+
+    function escHtml(str) {
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // ---- Fetch Gigs ----
+    async function loadGigs() {
+      const container = document.getElementById('gig-list-content');
+      container.innerHTML = '<div class="list-state-row">loading&hellip;</div>';
+      const statsEl = document.getElementById('gig-stats');
+      if (statsEl) statsEl.innerHTML = '';
+      try {
+        const res = await fetch('/api/gigs');
+        if (res.status === 401) { showView('view-auth'); return; }
+        if (!res.ok) throw new Error(await res.text());
+        const gigs = await res.json();
+        gigsData = gigs;
+        renderGigs(gigs);
+      } catch (err) {
+        container.innerHTML = `<div class="list-state-row" style="color:var(--red)">error: ${escHtml(err.message)}</div>`;
+      }
+    }
+
+    // ---- Settings ----
+    let settingsData = {};
+
+    async function loadSettings() {
+      try {
+        const res = await fetch('/api/settings');
+        settingsData = await res.json();
+        populateSettingsForm(settingsData);
+      } catch (err) {
+        console.warn('Failed to load settings:', err);
+      }
+    }
+
+    function populateSettingsForm(s) {
+      const set = (id, val) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (Array.isArray(val)) {
+          el.value = val.join(', ');
+        } else {
+          el.value = val ?? '';
+        }
+      };
+      set('s-calendarId', s.calendarId);
+      set('s-daysBack', s.daysBack);
+      set('s-daysAhead', s.daysAhead);
+      set('s-holdKeywords', s.holdKeywords);
+      set('s-confirmedKeywords', s.confirmedKeywords);
+      set('s-venueSource', s.venueSource);
+      set('s-venueSummarySeparator', s.venueSummarySeparator);
+      updateSeparatorVisibility(s.venueSource);
+      populateBandFields(s.bands || []);
+    }
+
+    function updateSeparatorVisibility(venueSource) {
+      const wrap = document.getElementById('wrap-separator');
+      if (wrap) {
+        wrap.style.display = venueSource === 'title' ? '' : 'none';
+      }
+    }
+
+    function populateBandFields(bands) {
+      const container = document.getElementById('bands-settings-fields');
+      if (!container) return;
+      container.innerHTML = bands.map((b, i) => `
+        <div style="border-bottom:1px solid var(--border); padding-bottom:20px; margin-bottom:20px;">
+          <div class="field-label" style="margin-bottom:12px; color:var(--text2);">Band ${i + 1}</div>
+          <div class="field-wrap">
+            <label class="field-label" for="s-band-${i}-name">Name</label>
+            <input class="field band-field" id="s-band-${i}-name" data-band-idx="${i}" data-band-key="name"
+              type="text" value="${escHtml(b.name || '')}" placeholder="Band name">
+            <span class="save-indicator" id="si-band-${i}">saved</span>
+          </div>
+          <div class="field-wrap">
+            <label class="field-label" for="s-band-${i}-short">Short label</label>
+            <input class="field band-field" id="s-band-${i}-short" data-band-idx="${i}" data-band-key="short"
+              type="text" value="${escHtml(b.short || '')}" placeholder="Abbrev shown in list">
+          </div>
+          <div class="field-wrap" style="margin-bottom:0">
+            <label class="field-label" for="s-band-${i}-keywords">Keywords</label>
+            <input class="field band-field" id="s-band-${i}-keywords" data-band-idx="${i}" data-band-key="keywords"
+              type="text" value="${escHtml((b.keywords || []).join(', '))}" placeholder="Feds, Federales">
+            <div class="field-hint">Comma-separated. Matched against event title (case-insensitive, whole word).</div>
+          </div>
+        </div>`).join('');
+
+      container.querySelectorAll('.band-field').forEach(el => {
+        el.addEventListener('blur', () => saveBands());
+        el.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); el.blur(); } });
+      });
+    }
+
+    async function saveBands() {
+      const container = document.getElementById('bands-settings-fields');
+      if (!container) return;
+      const current = settingsData.bands || [];
+      const updated = current.map((b, i) => {
+        const name = document.getElementById(`s-band-${i}-name`)?.value.trim() || b.name;
+        const short = document.getElementById(`s-band-${i}-short`)?.value.trim() || b.short;
+        const kwRaw = document.getElementById(`s-band-${i}-keywords`)?.value || '';
+        const keywords = kwRaw.split(',').map(s => s.trim()).filter(Boolean);
+        return { ...b, name, short, keywords };
+      });
+      try {
+        const res = await fetch('/api/settings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ bands: updated }),
+        });
+        if (!res.ok) throw new Error(await res.text());
+        settingsData = await res.json();
+        // Flash saved indicator on first band (representative)
+        current.forEach((_, i) => showSaved(`band-${i}`));
+      } catch (err) {
+        console.warn('Failed to save bands:', err);
+      }
+    }
+
+    function parseFieldValue(key, rawValue) {
+      if (key === 'holdKeywords' || key === 'confirmedKeywords') {
+        return rawValue.split(',').map(s => s.trim()).filter(Boolean);
+      }
+      if (key === 'daysBack' || key === 'daysAhead') {
+        return parseInt(rawValue, 10) || 0;
+      }
+      return rawValue;
+    }
+
+    async function saveSetting(key, rawValue) {
+      const value = parseFieldValue(key, rawValue);
+      const body = { [key]: value };
+      try {
+        const res = await fetch('/api/settings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        });
+        if (!res.ok) throw new Error(await res.text());
+        settingsData = await res.json();
+        showSaved(key);
+      } catch (err) {
+        console.warn('Failed to save setting:', err);
+      }
+    }
+
+    function showSaved(key) {
+      const el = document.getElementById(`si-${key}`);
+      if (!el) return;
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 1800);
+    }
+
+    // ---- Init ----
+    async function init() {
+      // Check auth
+      const statusRes = await fetch('/auth/status');
+      const { authenticated } = await statusRes.json();
+
+      // Check for error in URL
+      const urlError = new URLSearchParams(location.search).get('error');
+
+      if (!authenticated) {
+        showView('view-auth');
+        if (urlError) {
+          document.getElementById('auth-error').textContent =
+            urlError === 'auth_denied' ? 'Connection cancelled.' : 'Authentication failed. Please try again.';
+        }
+        // Clean URL
+        if (urlError) history.replaceState({}, '', '/');
+        return;
+      }
+
+      showView('view-list');
+      // Load settings first so band filter rail has the right labels
+      await loadSettings();
+      renderFilterRail();
+      loadGigs();
+
+      // Clean URL
+      if (urlError) history.replaceState({}, '', '/');
+    }
+
+    // ---- Event Listeners ----
+    document.getElementById('btn-mode-gig').addEventListener('click', () => {
+      displayMode = 'gig';
+      document.getElementById('btn-mode-gig').classList.add('active');
+      document.getElementById('btn-mode-list').classList.remove('active');
+      renderGigs(gigsData);
+    });
+
+    document.getElementById('btn-mode-list').addEventListener('click', () => {
+      displayMode = 'list';
+      document.getElementById('btn-mode-list').classList.add('active');
+      document.getElementById('btn-mode-gig').classList.remove('active');
+      renderGigs(gigsData);
+    });
+
+    document.getElementById('btn-refresh').addEventListener('click', loadGigs);
+
+    document.getElementById('btn-settings').addEventListener('click', () => {
+      loadSettings();
+      showView('view-settings');
+    });
+
+    document.getElementById('btn-back').addEventListener('click', () => {
+      showView('view-list');
+      // Reload gigs in case calendar ID or other settings changed
+      loadGigs();
+    });
+
+    // Collapsible sections
+    document.querySelectorAll('.settings-section-header[data-target]').forEach(header => {
+      header.addEventListener('click', () => {
+        header.classList.toggle('collapsed');
+        const body = document.getElementById(header.dataset.target);
+        if (body) body.classList.toggle('collapsed');
+      });
+    });
+
+    // Auto-save settings on blur
+    document.querySelectorAll('[data-setting]').forEach(el => {
+      const key = el.dataset.setting;
+
+      if (el.tagName === 'SELECT') {
+        el.addEventListener('change', () => {
+          saveSetting(key, el.value);
+          if (key === 'venueSource') updateSeparatorVisibility(el.value);
+        });
+      } else {
+        el.addEventListener('blur', () => saveSetting(key, el.value));
+        el.addEventListener('keydown', e => {
+          if (e.key === 'Enter') { e.preventDefault(); el.blur(); }
+        });
+      }
+    });
+
+    // Start
+    init();
+  </script>
+</div><!-- #app -->
+</body>
+</html>

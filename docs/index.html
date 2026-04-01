@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gig List</title>
+  <style>
+    :root {
+      --bg:     #ffffff;
+      --bg2:    #f5f5f5;
+      --text:   #111111;
+      --text2:  #666666;
+      --text3:  #bbbbbb;
+      --red:    #b5291c;
+      --hold:   #c47c00;
+      --border: #e0e0e0;
+      --accent: #1db954;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      line-height: 1.4;
+      overscroll-behavior: none;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    /* ---- App shell ---- */
+    #app {
+      position: fixed;
+      top: 0; bottom: 0;
+      left: 10%; right: 10%;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (max-width: 700px) {
+      #app { left: 0; right: 0; border-left: none; border-right: none; }
+    }
+
+    .scroll-area {
+      flex: 1;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+    }
+
+    /* ---- Top Bar ---- */
+    .top-bar { border-bottom: 1px solid var(--border); flex-shrink: 0; }
+    .top-bar-inner {
+      display: flex;
+      align-items: center;
+      padding: 18px 24px 14px;
+      gap: 16px;
+    }
+    .top-bar-title {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text2);
+    }
+    .top-bar-stats {
+      flex: 1;
+      padding-left: 14px;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--text3);
+    }
+    .top-bar-stats .stat-confirmed { color: var(--accent); }
+    .top-bar-stats .stat-hold      { color: var(--hold); }
+    .top-bar-stats .stat-sep       { color: var(--border); margin: 0 5px; }
+
+    .top-bar-updated {
+      font-size: 9px;
+      letter-spacing: 0.06em;
+      color: var(--text3);
+      flex-shrink: 0;
+    }
+
+    /* ---- Icon button ---- */
+    .icon-btn {
+      background: none; border: none;
+      color: var(--text3);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px; letter-spacing: 0.1em;
+      padding: 4px 0; cursor: pointer; line-height: 1;
+    }
+    .icon-btn:active { color: var(--text); }
+
+    /* ---- View toggle ---- */
+    .view-toggle { display: flex; border: 1px solid var(--border); flex-shrink: 0; }
+    .view-toggle-btn {
+      background: none; border: none;
+      padding: 5px 10px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text3); cursor: pointer;
+      transition: background 0.1s, color 0.1s;
+    }
+    .view-toggle-btn + .view-toggle-btn { border-left: 1px solid var(--border); }
+    .view-toggle-btn.active { background: var(--text); color: var(--bg); }
+
+    /* ---- Body layout ---- */
+    .list-body { flex: 1; display: flex; overflow: hidden; }
+
+    /* ---- Filter rail ---- */
+    .filter-rail {
+      width: 68px; flex-shrink: 0;
+      border-right: 1px solid var(--border);
+      display: flex; flex-direction: column;
+      padding-top: 14px;
+    }
+    .filter-opt {
+      padding: 10px 0; text-align: center;
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text3); cursor: pointer;
+      border-left: 2px solid transparent;
+      transition: color 0.1s; user-select: none;
+    }
+    .filter-opt:active { color: var(--text); }
+    .filter-opt.active { color: var(--text); border-left-color: var(--accent); }
+    .filter-sep { height: 1px; background: var(--border); margin: 8px 14px; }
+
+    /* ---- List main ---- */
+    .list-main { flex: 1; display: flex; flex-direction: column; overflow: hidden; min-width: 0; }
+
+    /* ---- Column header ---- */
+    .gig-list-header { border-bottom: 1px solid var(--border); flex-shrink: 0; }
+    .gig-list-header-inner { display: flex; align-items: center; padding: 10px 24px; }
+    .col-spacer { width: 26px; flex-shrink: 0; }
+    .col-date   { width: 118px; flex-shrink: 0; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); }
+    .col-venue  { flex: 1; min-width: 0; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); }
+    .col-band   { width: 54px; flex-shrink: 0; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); }
+    .col-status { width: 82px; flex-shrink: 0; text-align: right; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); }
+
+    /* ---- Month header ---- */
+    .month-header {
+      padding: 10px 24px 8px;
+      font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text2);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 10;
+    }
+
+    /* ---- Gig rows ---- */
+    .gig-item { border-bottom: 1px solid var(--border); }
+    .gig-row {
+      display: flex; align-items: flex-start;
+      padding: 14px 24px;
+      transition: background 0.1s; cursor: pointer; user-select: none;
+    }
+    .gig-row:active { background: var(--bg2); }
+
+    .gig-toggle {
+      flex-shrink: 0; font-size: 14px; color: var(--text3);
+      margin-right: 12px; padding-top: 1px;
+      transform: rotate(-90deg); transition: transform 0.2s; line-height: 1;
+    }
+    .gig-item.expanded .gig-toggle { transform: rotate(0deg); }
+
+    .gig-detail { display: none; border-top: 1px solid var(--border); background: var(--bg2); }
+    .gig-item.expanded .gig-detail { display: block; }
+
+    .detail-row {
+      display: flex; align-items: baseline; gap: 14px;
+      padding: 10px 24px; border-bottom: 1px solid var(--border);
+    }
+    .detail-row:last-of-type { border-bottom: none; }
+    .detail-label { width: 68px; flex-shrink: 0; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); padding-top: 1px; }
+    .detail-value { flex: 1; font-size: 12px; letter-spacing: 0.03em; color: var(--text2); white-space: pre-wrap; word-break: break-word; line-height: 1.6; }
+    .detail-value.muted { color: var(--text3); }
+    .detail-row-notes .detail-value { color: var(--text); font-size: 13px; }
+    .detail-link { display: inline-block; margin: 12px 24px 14px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); text-decoration: none; }
+    .detail-link:active { color: var(--text); }
+
+    .gig-date { width: 118px; flex-shrink: 0; font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text2); padding-top: 1px; }
+    .gig-date .year-tag { font-size: 10px; color: var(--text3); letter-spacing: 0.04em; }
+    .day-of-span  { color: var(--text3); letter-spacing: 0.04em; }
+    .when-day-of  { color: var(--text3); }
+
+    .gig-venue {
+      flex: 1; font-size: 13px; letter-spacing: 0.03em;
+      padding-right: 12px; padding-top: 1px;
+      min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .gig-band {
+      width: 54px; flex-shrink: 0;
+      font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text2); padding-top: 2px;
+    }
+    .gig-band.multi { color: var(--text3); }
+    .gig-status { width: 82px; flex-shrink: 0; text-align: right; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding-top: 2px; }
+    .gig-status.confirmed { color: var(--accent); }
+    .gig-status.hold      { color: var(--hold); }
+
+    .list-state-row { padding: 24px; font-size: 12px; color: var(--text3); letter-spacing: 0.06em; }
+
+    /* ---- Plain list view ---- */
+    .plain-list-row { display: flex; padding: 11px 24px; border-bottom: 1px solid var(--border); align-items: baseline; }
+    .pl-day    { width: 36px; flex-shrink: 0; font-size: 10px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text3); }
+    .pl-date   { width: 82px; flex-shrink: 0; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text2); }
+    .pl-title  { flex: 1; font-size: 12px; letter-spacing: 0.03em; color: var(--text); min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 12px; }
+    .pl-band   { width: 54px; flex-shrink: 0; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text2); }
+    .pl-status { width: 82px; flex-shrink: 0; text-align: right; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
+    .pl-status.confirmed { color: var(--accent); }
+    .pl-status.hold      { color: var(--hold); }
+
+    /* ---- Mobile ---- */
+    @media (max-width: 540px) {
+      .filter-rail { width: 44px; }
+      .filter-opt  { font-size: 9px; letter-spacing: 0.06em; }
+      .gig-list-header-inner, .gig-row, .plain-list-row { padding-left: 12px; padding-right: 12px; }
+      .col-date, .gig-date { width: 70px; font-size: 9px; }
+      .col-band,  .gig-band  { display: none; }
+      .col-venue, .gig-venue { font-size: 11px; }
+      .col-status, .gig-status { width: 58px; font-size: 9px; }
+      .month-header { padding: 8px 12px 6px; }
+      .pl-band { display: none; }
+      .pl-day  { width: 28px; font-size: 9px; }
+      .pl-date { width: 66px; font-size: 10px; }
+      .pl-title  { font-size: 11px; }
+      .pl-status { width: 58px; font-size: 9px; }
+      .top-bar-updated { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <span class="top-bar-title">Gig List</span>
+      <span class="top-bar-stats" id="gig-stats"></span>
+      <div class="view-toggle">
+        <button class="view-toggle-btn active" id="btn-mode-gig">Gig</button>
+        <button class="view-toggle-btn" id="btn-mode-list">List</button>
+      </div>
+      <span class="top-bar-updated" id="updated-at"></span>
+      <button class="icon-btn" id="btn-refresh" title="Refresh">&#8635;</button>
+    </div>
+  </div>
+
+  <div class="list-body">
+    <div class="filter-rail" id="filter-rail"></div>
+    <div class="list-main">
+      <div class="gig-list-header" id="gig-list-header">
+        <div class="gig-list-header-inner">
+          <span class="col-spacer"></span>
+          <span class="col-date">Date</span>
+          <span class="col-venue">Title</span>
+          <span class="col-band">Band</span>
+          <span class="col-status">Status</span>
+        </div>
+      </div>
+      <div class="scroll-area">
+        <div id="gig-list-content">
+          <div class="list-state-row">loading&hellip;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // ---- State ----
+  let gigsData        = [];
+  let config          = {};
+  let activeBandFilter = 'all';
+  let displayMode     = 'gig';
+
+  // ---- Date / Time helpers ----
+  const MONTHS_SHORT = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+  const MONTHS_LONG  = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const DAYS_SHORT   = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+  const DAYS_LONG    = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+  function parseD(s) {
+    if (!s) return null;
+    return /^\d{4}-\d{2}-\d{2}$/.test(s) ? new Date(s + 'T00:00:00') : new Date(s);
+  }
+  function eventDateMs(s) { const d = parseD(s); return d ? d.getTime() : 0; }
+
+  function formatDateParts(s) {
+    const d = parseD(s);
+    if (!d) return { dateStr: '—', yearTag: '' };
+    const yearTag = d.getFullYear() !== new Date().getFullYear()
+      ? ` <span class="year-tag">'${String(d.getFullYear()).slice(2)}</span>` : '';
+    return { dateStr: `${DAYS_SHORT[d.getDay()]} ${MONTHS_SHORT[d.getMonth()]} ${String(d.getDate()).padStart(2,'0')}`, yearTag };
+  }
+  function formatFullDate(s) {
+    const d = parseD(s);
+    if (!d) return '—';
+    return `${DAYS_LONG[d.getDay()]}, ${MONTHS_LONG[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+  }
+  function getMonthLabel(s) {
+    const d = parseD(s);
+    return d ? `${MONTHS_LONG[d.getMonth()]} ${d.getFullYear()}` : '';
+  }
+  function formatTimeRange(start, end) {
+    if (!start) return null;
+    const fmt = dt => new Date(dt).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+    return end ? `${fmt(start)} – ${fmt(end)}` : fmt(start);
+  }
+  function stripHtml(str) {
+    if (!str) return '';
+    return str
+      .replace(/<br\s*\/?>/gi, '\n').replace(/<\/p>/gi, '\n').replace(/<[^>]+>/g, '')
+      .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>').replace(/&quot;/g, '"')
+      .replace(/\n{3,}/g, '\n\n').trim();
+  }
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  // ---- Filter rail ----
+  function renderFilterRail() {
+    const rail  = document.getElementById('filter-rail');
+    const bands = config.bands || [];
+    let html = `<div class="filter-opt active" data-band="all">All</div>`;
+    if (bands.length) {
+      html += `<div class="filter-sep"></div>`;
+      bands.forEach(b => {
+        html += `<div class="filter-opt" data-band="${escHtml(b.id)}">${escHtml(b.short || b.name)}</div>`;
+      });
+    }
+    rail.innerHTML = html;
+    rail.querySelectorAll('.filter-opt').forEach(opt => {
+      opt.addEventListener('click', () => {
+        activeBandFilter = opt.dataset.band;
+        rail.querySelectorAll('.filter-opt').forEach(o => o.classList.toggle('active', o === opt));
+        renderGigs(gigsData);
+      });
+    });
+  }
+
+  function bandLabel(gig) {
+    const bands   = config.bands || [];
+    const matches = (gig.bands || []).map(id => bands.find(b => b.id === id)).filter(Boolean);
+    if (!matches.length)    return { text: '—',    cls: 'gig-band' };
+    if (matches.length > 1) return { text: 'Both', cls: 'gig-band multi' };
+    return { text: matches[0].short || matches[0].name, cls: 'gig-band' };
+  }
+
+  // ---- Multi-day expansion ----
+  function expandMultiDay(gig) {
+    let endExcl = null;
+    if (gig.endDate) {
+      endExcl = parseD(gig.endDate + 'T00:00:00');
+    } else if (gig.endTime) {
+      const startD = parseD(gig.date), endD = new Date(gig.endTime);
+      const sm = new Date(startD.getFullYear(), startD.getMonth(), startD.getDate());
+      const em = new Date(endD.getFullYear(),   endD.getMonth(),   endD.getDate());
+      const span = Math.round((em - sm) / 86400000);
+      if (span >= 2 || (span === 1 && endD.getHours() >= 12)) endExcl = new Date(em.getTime() + 86400000);
+    }
+    if (!endExcl) return [gig];
+    const sm = new Date(parseD(gig.date)); sm.setHours(0,0,0,0);
+    const total = Math.round((endExcl - sm) / 86400000);
+    if (total <= 1) return [gig];
+    return Array.from({ length: total }, (_, i) => {
+      const d = new Date(sm); d.setDate(d.getDate() + i);
+      const y = d.getFullYear(), mo = String(d.getMonth()+1).padStart(2,'0'), dd = String(d.getDate()).padStart(2,'0');
+      return { ...gig, date: `${y}-${mo}-${dd}`, startTime: i===0 ? gig.startTime : null, endTime: i===total-1 ? gig.endTime : null, _dayOf: i+1, _totalDays: total };
+    });
+  }
+
+  // ---- Shared filter / stats ----
+  function buildUpcoming(gigs) {
+    const now = Date.now();
+    return gigs
+      .filter(g => g.status !== 'unmatched')
+      .flatMap(g => expandMultiDay(g))
+      .filter(g => eventDateMs(g.date) >= now)
+      .filter(g => activeBandFilter === 'all' || (g.bands || []).includes(activeBandFilter));
+  }
+
+  function renderStats(upcoming) {
+    const el = document.getElementById('gig-stats');
+    if (!el) return;
+    const nC = new Set(upcoming.filter(g => g.status === 'confirmed').map(g => g.id)).size;
+    const nH = new Set(upcoming.filter(g => g.status === 'hold').map(g => g.id)).size;
+    const parts = [];
+    if (nC) parts.push(`<span class="stat-confirmed">${nC} confirmed</span>`);
+    if (nH) parts.push(`<span class="stat-hold">${nH} on hold</span>`);
+    el.innerHTML = parts.join('<span class="stat-sep">·</span>');
+  }
+
+  // ---- Render dispatch ----
+  function renderGigs(gigs) {
+    const header = document.getElementById('gig-list-header');
+    if (displayMode === 'list') {
+      if (header) header.style.display = 'none';
+      renderListView(gigs);
+    } else {
+      if (header) header.style.display = '';
+      renderGigView(gigs);
+    }
+  }
+
+  function renderGigView(gigs) {
+    const container = document.getElementById('gig-list-content');
+    const upcoming  = buildUpcoming(gigs);
+    if (!upcoming.length) {
+      document.getElementById('gig-stats').innerHTML = '';
+      container.innerHTML = '<div class="list-state-row">no upcoming events</div>';
+      return;
+    }
+    renderStats(upcoming);
+
+    let html = '', currentMonth = null;
+    for (const gig of upcoming) {
+      const month = getMonthLabel(gig.date);
+      if (month !== currentMonth) { currentMonth = month; html += `<div class="month-header">${month}</div>`; }
+
+      const sc  = gig.status === 'hold' ? 'hold' : 'confirmed';
+      const sl  = gig.status === 'hold' ? 'Hold' : 'Confirmed';
+      const venue = gig.venue || gig.title || '—';
+      const { dateStr, yearTag } = formatDateParts(gig.date);
+      const timeStr    = formatTimeRange(gig.startTime, gig.endTime);
+      const isMultiDay = gig._totalDays > 1;
+      const dateDsp    = isMultiDay ? `${dateStr}${yearTag} <span class="day-of-span">${gig._dayOf}/${gig._totalDays}</span>` : `${dateStr}${yearTag}`;
+
+      let detailRows = '';
+      let whenStr = escHtml(formatFullDate(gig.date));
+      if (timeStr)    whenStr += ` &nbsp;·&nbsp; ${escHtml(timeStr)}`;
+      if (isMultiDay) whenStr += ` &nbsp;·&nbsp; <span class="when-day-of">day ${gig._dayOf} of ${gig._totalDays}</span>`;
+      detailRows += `<div class="detail-row"><span class="detail-label">When</span><span class="detail-value">${whenStr}</span></div>`;
+      if (gig.description) {
+        const notes = stripHtml(gig.description);
+        if (notes) detailRows += `<div class="detail-row detail-row-notes"><span class="detail-label">Notes</span><span class="detail-value">${escHtml(notes)}</span></div>`;
+      }
+      if (gig.location) detailRows += `<div class="detail-row"><span class="detail-label">Address</span><span class="detail-value">${escHtml(gig.location)}</span></div>`;
+      detailRows += `<div class="detail-row"><span class="detail-label">Event</span><span class="detail-value muted">${escHtml(gig.title || '—')}</span></div>`;
+
+      const calLink = gig.htmlLink ? `<a class="detail-link" href="${gig.htmlLink}" target="_blank" rel="noopener">Open in Google Calendar &#8599;</a>` : '';
+      const itemId  = isMultiDay ? `${gig.id}_${gig._dayOf}` : gig.id;
+
+      html += `<div class="gig-item" data-id="${escHtml(itemId)}">
+        <div class="gig-row">
+          <div class="gig-toggle">&#9660;</div>
+          <div class="gig-date">${dateDsp}</div>
+          <div class="gig-venue">${escHtml(venue)}</div>
+          <div class="${bandLabel(gig).cls}">${escHtml(bandLabel(gig).text)}</div>
+          <div class="gig-status ${sc}">${sl}</div>
+        </div>
+        <div class="gig-detail">${detailRows}${calLink}</div>
+      </div>`;
+    }
+    container.innerHTML = html;
+    container.querySelectorAll('.gig-row').forEach(row => {
+      row.addEventListener('click', () => row.closest('.gig-item').classList.toggle('expanded'));
+    });
+  }
+
+  function renderListView(gigs) {
+    const container = document.getElementById('gig-list-content');
+    const upcoming  = buildUpcoming(gigs);
+    if (!upcoming.length) {
+      document.getElementById('gig-stats').innerHTML = '';
+      container.innerHTML = '<div class="list-state-row">no upcoming events</div>';
+      return;
+    }
+    renderStats(upcoming);
+    let html = '';
+    for (const gig of upcoming) {
+      const d   = parseD(gig.date);
+      const day = d ? DAYS_SHORT[d.getDay()] : '—';
+      const mon = d ? MONTHS_SHORT[d.getMonth()] : '—';
+      const num = d ? String(d.getDate()).padStart(2,'0') : '—';
+      const yr  = d ? d.getFullYear() : '';
+      const dateStr = yr !== new Date().getFullYear() ? `${mon} ${num} '${String(yr).slice(2)}` : `${mon} ${num}`;
+      const bl  = bandLabel(gig);
+      const sc  = gig.status === 'hold' ? 'hold' : 'confirmed';
+      const sl  = gig.status === 'hold' ? 'Hold' : 'Confirmed';
+      html += `<div class="plain-list-row">
+        <div class="pl-day">${day}</div>
+        <div class="pl-date">${dateStr}</div>
+        <div class="pl-title">${escHtml(gig.venue || gig.title || '—')}</div>
+        <div class="pl-band">${escHtml(bl.text)}</div>
+        <div class="pl-status ${sc}">${sl}</div>
+      </div>`;
+    }
+    container.innerHTML = html;
+  }
+
+  // ---- Load data ----
+  async function loadData() {
+    const container = document.getElementById('gig-list-content');
+    container.innerHTML = '<div class="list-state-row">loading&hellip;</div>';
+    document.getElementById('gig-stats').innerHTML = '';
+
+    try {
+      // Load config and gigs in parallel; config is cached after first load
+      const [cfg, data] = await Promise.all([
+        Object.keys(config).length ? Promise.resolve(config) : fetch('config.json').then(r => r.json()),
+        fetch('gigs.json').then(r => r.json()),
+      ]);
+
+      config   = cfg;
+      gigsData = data.gigs || [];
+
+      renderFilterRail();
+      renderGigs(gigsData);
+
+      // Show when data was last fetched
+      if (data.fetchedAt) {
+        const mins = Math.round((Date.now() - new Date(data.fetchedAt).getTime()) / 60000);
+        const label = mins < 2 ? 'just now' : `${mins}m ago`;
+        const el = document.getElementById('updated-at');
+        if (el) el.textContent = `updated ${label}`;
+      }
+    } catch (err) {
+      container.innerHTML = `<div class="list-state-row" style="color:var(--red)">failed to load: ${escHtml(err.message)}</div>`;
+    }
+  }
+
+  // ---- Event listeners ----
+  document.getElementById('btn-mode-gig').addEventListener('click', () => {
+    displayMode = 'gig';
+    document.getElementById('btn-mode-gig').classList.add('active');
+    document.getElementById('btn-mode-list').classList.remove('active');
+    renderGigs(gigsData);
+  });
+  document.getElementById('btn-mode-list').addEventListener('click', () => {
+    displayMode = 'list';
+    document.getElementById('btn-mode-list').classList.add('active');
+    document.getElementById('btn-mode-gig').classList.remove('active');
+    renderGigs(gigsData);
+  });
+  document.getElementById('btn-refresh').addEventListener('click', loadData);
+
+  // ---- Start ----
+  loadData();
+</script>
+</body>
+</html>

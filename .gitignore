@@ -1,0 +1,4 @@
+node_modules/
+.env
+data/
+feds-calendar-alerts*.json

@@ -1,0 +1,13 @@
+{
+  "calendarId": "d5s5fcphhafm0nvgcek25o9k18@group.calendar.google.com",
+  "holdKeywords": ["(h)", "(hold)"],
+  "confirmedKeywords": ["(c)", "(confirmed)"],
+  "bands": [
+    { "id": "feds", "name": "The Federales", "short": "Feds", "keywords": ["Feds", "Federales"] },
+    { "id": "td",   "name": "Tumbling Daisies", "short": "TD", "keywords": ["TD", "Tumbling Daisies"] }
+  ],
+  "venueSource": "title",
+  "venueSummarySeparator": "",
+  "daysBack": 0,
+  "daysAhead": 365
+}
