@@ -10,7 +10,7 @@ if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR);
 
 const app = express();
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static('docs'));
 
 app.use('/', require('./src/routes/authRoutes'));
 app.use('/', require('./src/routes/calendarRoutes'));

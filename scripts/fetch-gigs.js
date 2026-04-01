@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
+require('dotenv').config({ path: require('path').join(__dirname, '../.env') });
 const { google } = require('googleapis');
 const fs   = require('fs');
 const path = require('path');

@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gig List</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
   <style>
     :root {
       --bg:     #ffffff;
@@ -213,6 +215,63 @@
     .pl-status.confirmed { color: var(--accent); }
     .pl-status.hold      { color: var(--hold); }
 
+    #btn-settings { font-size: 22px; }
+
+    /* ---- Settings view ---- */
+    .settings-view {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+      z-index: 50;
+      transform: translateX(100%);
+      transition: transform 0.26s ease;
+    }
+    .settings-view.open { transform: translateX(0); }
+
+    .settings-section-header {
+      display: flex; align-items: center; gap: 10px;
+      padding: 16px 24px 12px;
+      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text3);
+      border-top: 1px solid var(--border);
+    }
+    .settings-body { padding: 8px 24px 24px; }
+
+    .field-label {
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text3); margin-bottom: 4px; display: block;
+    }
+    .field-wrap { margin-bottom: 24px; }
+    .field-hint { font-size: 11px; color: var(--text3); letter-spacing: 0.04em; margin-top: 6px; }
+
+    .pref-toggle {
+      display: flex;
+      border: 1px solid var(--border);
+      width: fit-content;
+    }
+    .pref-toggle-btn {
+      background: none; border: none;
+      padding: 8px 18px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text3); cursor: pointer;
+      transition: background 0.1s, color 0.1s;
+    }
+    .pref-toggle-btn + .pref-toggle-btn { border-left: 1px solid var(--border); }
+    .pref-toggle-btn.active { background: var(--text); color: var(--bg); }
+
+    .band-pref-list { display: flex; flex-direction: column; gap: 2px; }
+    .band-pref-opt {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer; user-select: none;
+    }
+    .band-pref-opt:last-child { border-bottom: none; }
+    .band-pref-opt input[type="radio"] { accent-color: var(--accent); width: 14px; height: 14px; cursor: pointer; }
+    .band-pref-label { font-size: 12px; letter-spacing: 0.04em; color: var(--text); }
+
     /* ---- Mobile ---- */
     @media (max-width: 540px) {
       .filter-rail { width: 44px; }
@@ -245,6 +304,7 @@
       </div>
       <span class="top-bar-updated" id="updated-at"></span>
       <button class="icon-btn" id="btn-refresh" title="Refresh">&#8635;</button>
+      <button class="icon-btn" id="btn-settings" title="Settings">&#9881;</button>
     </div>
   </div>
 
@@ -268,14 +328,59 @@
     </div>
   </div>
 
+  <!-- Settings panel (slides in over the list) -->
+  <div class="settings-view" id="settings-view">
+    <div class="top-bar">
+      <div class="top-bar-inner">
+        <button class="icon-btn" id="btn-back">&larr;</button>
+        <span class="top-bar-title">Settings</span>
+      </div>
+    </div>
+    <div class="scroll-area">
+
+      <div class="settings-section-header" style="border-top:none;">Display</div>
+      <div class="settings-body">
+
+        <div class="field-wrap">
+          <label class="field-label">Default view</label>
+          <div class="pref-toggle" id="pref-view-toggle">
+            <button class="pref-toggle-btn active" data-val="gig">Gig</button>
+            <button class="pref-toggle-btn" data-val="list">List</button>
+          </div>
+        </div>
+
+        <div class="field-wrap" style="margin-bottom:0">
+          <label class="field-label">Default band</label>
+          <div class="band-pref-list" id="pref-band-list">
+            <!-- populated from config after load -->
+          </div>
+          <div class="field-hint">Which band's gigs to show on load.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <script>
+  // ---- Local prefs (per-device, localStorage) ----
+  const PREFS_KEY = 'giglist_prefs';
+
+  function loadPrefs() {
+    try { return JSON.parse(localStorage.getItem(PREFS_KEY) || '{}'); } catch { return {}; }
+  }
+  function savePref(key, val) {
+    const p = loadPrefs();
+    p[key] = val;
+    localStorage.setItem(PREFS_KEY, JSON.stringify(p));
+  }
+
   // ---- State ----
-  let gigsData        = [];
-  let config          = {};
+  let gigsData         = [];
+  let config           = {};
   let activeBandFilter = 'all';
-  let displayMode     = 'gig';
+  let displayMode      = 'gig';
 
   // ---- Date / Time helpers ----
   const MONTHS_SHORT = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
@@ -493,6 +598,67 @@
     container.innerHTML = html;
   }
 
+  // ---- Settings UI ----
+  function openSettings() {
+    document.getElementById('settings-view').classList.add('open');
+    populatePrefsBandList();
+  }
+  function closeSettings() {
+    document.getElementById('settings-view').classList.remove('open');
+  }
+
+  function populatePrefsBandList() {
+    const prefs    = loadPrefs();
+    const current  = prefs.defaultBand || 'all';
+    const bands    = config.bands || [];
+    const opts     = [{ id: 'all', label: 'All bands' }, ...bands.map(b => ({ id: b.id, label: b.name }))];
+
+    document.getElementById('pref-band-list').innerHTML = opts.map(o => `
+      <label class="band-pref-opt">
+        <input type="radio" name="pref-band" value="${escHtml(o.id)}" ${o.id === current ? 'checked' : ''}>
+        <span class="band-pref-label">${escHtml(o.label)}</span>
+      </label>`).join('');
+
+    document.querySelectorAll('input[name="pref-band"]').forEach(el => {
+      el.addEventListener('change', () => {
+        savePref('defaultBand', el.value);
+        activeBandFilter = el.value;
+        syncFilterRailSelection();
+        renderGigs(gigsData);
+      });
+    });
+  }
+
+  function syncFilterRailSelection() {
+    document.querySelectorAll('#filter-rail .filter-opt').forEach(opt => {
+      opt.classList.toggle('active', opt.dataset.band === activeBandFilter);
+    });
+  }
+
+  function applyPrefs() {
+    const prefs = loadPrefs();
+
+    // Default view
+    if (prefs.defaultView) {
+      displayMode = prefs.defaultView;
+      document.getElementById('btn-mode-gig').classList.toggle('active', displayMode === 'gig');
+      document.getElementById('btn-mode-list').classList.toggle('active', displayMode === 'list');
+    }
+
+    // Default band (only if config is already loaded)
+    if (prefs.defaultBand && config.bands) {
+      const valid = ['all', ...(config.bands || []).map(b => b.id)];
+      if (valid.includes(prefs.defaultBand)) {
+        activeBandFilter = prefs.defaultBand;
+      }
+    }
+
+    // Sync pref-view-toggle buttons to current state
+    document.querySelectorAll('#pref-view-toggle .pref-toggle-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.val === displayMode);
+    });
+  }
+
   // ---- Load data ----
   async function loadData() {
     const container = document.getElementById('gig-list-content');
@@ -509,7 +675,9 @@
       config   = cfg;
       gigsData = data.gigs || [];
 
+      applyPrefs();
       renderFilterRail();
+      syncFilterRailSelection();
       renderGigs(gigsData);
 
       // Show when data was last fetched
@@ -539,7 +707,26 @@
   });
   document.getElementById('btn-refresh').addEventListener('click', loadData);
 
+  document.getElementById('btn-settings').addEventListener('click', openSettings);
+  document.getElementById('btn-back').addEventListener('click', closeSettings);
+
+  // Pref: default view toggle
+  document.querySelectorAll('#pref-view-toggle .pref-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      displayMode = btn.dataset.val;
+      savePref('defaultView', displayMode);
+      document.querySelectorAll('#pref-view-toggle .pref-toggle-btn').forEach(b => {
+        b.classList.toggle('active', b === btn);
+      });
+      // Also sync the main view toggle
+      document.getElementById('btn-mode-gig').classList.toggle('active', displayMode === 'gig');
+      document.getElementById('btn-mode-list').classList.toggle('active', displayMode === 'list');
+      renderGigs(gigsData);
+    });
+  });
+
   // ---- Start ----
+  applyPrefs();
   loadData();
 </script>
 </body>
