@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-01T14:56:53.386Z",
+  "fetchedAt": "2026-04-01T15:32:42.583Z",
   "gigs": [
     {
       "id": "4npdqrto6o5thnqlc2t4qp9fs7",
@@ -279,10 +279,12 @@
       "startTime": null,
       "endTime": null,
       "endDate": "2026-06-30",
-      "bands": [],
+      "bands": [
+        "feds"
+      ],
       "venue": "Edina City Event",
       "status": "confirmed",
-      "title": "(C) Edina City Event",
+      "title": "(C) Feds @ Edina City Event",
       "location": "",
       "description": "$500\nSmaller band setup - trio or quartet would be good. Probably quintet at max.",
       "htmlLink": "https://www.google.com/calendar/event?eid=NTJhOWlyMWdtaDlwOXJuY2s2dHQ4aGJtbjMgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
@@ -548,8 +550,8 @@
         "feds"
       ],
       "venue": "Feds Grand Marais?",
-      "status": "hold",
-      "title": "(H) Feds Grand Marais?",
+      "status": "confirmed",
+      "title": "(C) Feds Grand Marais?",
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=NDRxN2dzdm80ZmlrM3M4OTB1Y29ub2h1aGggZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
