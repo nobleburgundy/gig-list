@@ -5,14 +5,14 @@ const SETTINGS_FILE = path.join(__dirname, '..', 'data', 'settings.json');
 
 // Bump this when defaults change in a way that stale saved values would break behavior.
 // loadSettings() resets any field listed in MIGRATED_FIELDS when it finds an older version.
-const SETTINGS_VERSION = 3;
+const SETTINGS_VERSION = 4;
 const MIGRATED_FIELDS = ['holdKeywords', 'confirmedKeywords', 'bands'];
 
 const DEFAULTS = {
   _version: SETTINGS_VERSION,
   calendarId: 'd5s5fcphhafm0nvgcek25o9k18@group.calendar.google.com',
-  holdKeywords: ['(h)', '(hold)'],
-  confirmedKeywords: ['(c)', '(confirmed)'],
+  holdKeywords: ['(h)', '(hold)', '[h]', '[hold]'],
+  confirmedKeywords: ['(c)', '(confirmed)', '[c]', '[confirmed]'],
   bands: [
     { id: 'feds', name: 'The Federales', short: 'Feds', keywords: ['Feds', 'Federales'] },
     { id: 'td',   name: 'Tumbling Daisies', short: 'TD', keywords: ['TD', 'Tumbling Daisies'] },
