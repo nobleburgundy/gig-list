@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-02T15:24:30.453Z",
+  "fetchedAt": "2026-04-02T15:49:08.249Z",
   "gigs": [
     {
       "id": "4npdqrto6o5thnqlc2t4qp9fs7",
@@ -97,7 +97,9 @@
       "startTime": null,
       "endTime": null,
       "endDate": "2026-05-17",
-      "bands": [],
+      "bands": [
+        "feds"
+      ],
       "venue": "Jay and Mel tie the knot",
       "status": "hold",
       "title": "(H) Jay and Mel tie the knot ",
