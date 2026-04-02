@@ -63,15 +63,21 @@ function parseVenue(event, settings) {
 }
 
 function parseEvent(event, settings) {
+  const status = parseStatus(event, settings);
+  let bands    = parseBands(event, settings);
+  if (bands.length === 0 && status !== 'unmatched') {
+    const feds = (settings.bands || []).find(b => b.id === 'feds');
+    bands = [feds ? feds.id : (settings.bands[0]?.id)].filter(Boolean);
+  }
   return {
     id:          event.id,
     date:        event.start?.dateTime || event.start?.date || null,
     startTime:   event.start?.dateTime || null,
     endTime:     event.end?.dateTime   || null,
     endDate:     event.end?.date       || null,
-    bands:       parseBands(event, settings),
+    bands,
     venue:       parseVenue(event, settings),
-    status:      parseStatus(event, settings),
+    status,
     title:       event.summary     || '',
     location:    event.location    || '',
     description: event.description || '',

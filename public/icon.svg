@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="80" fill="#111111"/>
+
+  <!-- List lines — centered, thinner -->
+  <line x1="86" y1="124" x2="426" y2="124" stroke="white" stroke-width="16" stroke-linecap="round" stroke-opacity="0.4"/>
+  <line x1="86" y1="214" x2="406" y2="214" stroke="white" stroke-width="16" stroke-linecap="round" stroke-opacity="0.4"/>
+  <line x1="86" y1="304" x2="420" y2="304" stroke="white" stroke-width="16" stroke-linecap="round" stroke-opacity="0.4"/>
+  <line x1="86" y1="394" x2="396" y2="394" stroke="white" stroke-width="16" stroke-linecap="round" stroke-opacity="0.4"/>
+
+  <!-- Two beamed eighth notes — centered on icon -->
+  <!-- Draw order: stems → beam → noteheads (so noteheads cover stem bottoms) -->
+
+  <!-- Stems -->
+  <rect x="221" y="142" width="11" height="204" fill="white"/>
+  <rect x="341" y="118" width="11" height="204" fill="white"/>
+
+  <!-- Beam -->
+  <polygon points="221,142 352,118 352,144 221,168" fill="white"/>
+
+  <!-- Noteheads (drawn last to swallow stem bottoms) -->
+  <ellipse cx="194" cy="346" rx="42" ry="29" transform="rotate(-20 194 346)" fill="white"/>
+  <ellipse cx="314" cy="322" rx="42" ry="29" transform="rotate(-20 314 322)" fill="white"/>
+
+</svg>

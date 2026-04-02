@@ -29,12 +29,12 @@ const CONFIG = {
 
   // Receives all gigs (both bands) — e.g. band leaders, members in both bands
   recipientsAll: [
-    'nobleburgundy@gmail.com',
+    'ceholm@gmail.com', 'Jscabich@gmail.com', 'nobleburgundy@gmail.com', 'larson8301@gmail.com'
   ],
 
   // Receives only their band's gigs — keyed by band id above
   recipientsByBand: {
-    feds: ['nobleburgundy@gmail.com'],
+    feds: ['liquidchroma@gmail.com', 'unoknows@hotmail.com', 'karl.wahoske@gmail.com'],
   },
 };
 
@@ -97,11 +97,18 @@ function parseEvent(event) {
     url = 'https://www.google.com/calendar/event?eid=' + eid;
   } catch(e) {}
 
+  const status = parseStatus(title, desc);
+  let bands    = parseBands(title);
+  if (bands.length === 0 && status !== 'unmatched') {
+    const feds = CONFIG.bands.find(b => b.id === 'feds');
+    bands = feds ? [feds.id] : [CONFIG.bands[0].id];
+  }
+
   return {
     title:     title,
     venue:     parseVenue(title),
-    status:    parseStatus(title, desc),
-    bands:     parseBands(title),
+    status:    status,
+    bands:     bands,
     startDate: isAllDay ? event.getAllDayStartDate() : event.getStartTime(),
     endDate:   isAllDay ? event.getAllDayEndDate()   : event.getEndTime(),
     isAllDay:  isAllDay,
@@ -199,7 +206,8 @@ function buildEmail(gigs, band) {
       <tr>
         <td style="border-top:1px solid #e0e0e0;padding:18px 32px;">
           <p style="margin:0;font-size:11px;color:#bbbbbb;letter-spacing:1px;text-transform:uppercase;">
-            Gig List — automated digest
+            Gig List — automated digest &nbsp;·&nbsp;
+            <a href="https://nobleburgundy.github.io/gig-list/" style="color:#bbbbbb;">View online</a>
           </p>
         </td>
       </tr>
