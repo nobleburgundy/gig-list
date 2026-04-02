@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-01T18:48:30.023Z",
+  "fetchedAt": "2026-04-02T15:24:30.453Z",
   "gigs": [
     {
       "id": "4npdqrto6o5thnqlc2t4qp9fs7",
@@ -14,22 +14,6 @@
       "location": "",
       "description": "Indianapolis for Final Four",
       "htmlLink": "https://www.google.com/calendar/event?eid=NG5wZHFydG82bzV0aG5xbGMydDRxcDlmczcgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "hnfbgao21b99svg5e65gpe14jk_20260401",
-      "date": "2026-04-01",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-04-02",
-      "bands": [
-        "feds"
-      ],
-      "venue": "[REMINDER] - update your Feds calendar!",
-      "status": "unmatched",
-      "title": "[REMINDER] - update your Feds calendar!",
-      "location": "",
-      "description": "Reminder for everyone to update the Feds availability calendar.",
-      "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNjA0MDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "11na9kt0hnjhsqebq51dilo9fh",
@@ -120,6 +104,20 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=MWt0dnNlb3VlaDMzaHM1ZDRiOHY4cjRrbDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "25ofidgb5i8vrcpfshgltem623",
+      "date": "2026-05-23",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-05-24",
+      "bands": [],
+      "venue": "No Jay",
+      "status": "unmatched",
+      "title": "No Jay",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjVvZmlkZ2I1aTh2cmNwZnNoZ2x0ZW02MjMgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "_6ksjae9p6t334b9j8gsj6b9k8533eba2890k8b9j6t2jee2260p3id1p8k",
