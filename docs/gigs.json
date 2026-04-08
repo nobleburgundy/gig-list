@@ -1,20 +1,6 @@
 {
-  "fetchedAt": "2026-04-08T04:22:39.389Z",
+  "fetchedAt": "2026-04-08T05:15:46.334Z",
   "gigs": [
-    {
-      "id": "4npdqrto6o5thnqlc2t4qp9fs7",
-      "date": "2026-04-01",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-04-08",
-      "bands": [],
-      "venue": "No James",
-      "status": "unmatched",
-      "title": "No James",
-      "location": "",
-      "description": "Indianapolis for Final Four",
-      "htmlLink": "https://www.google.com/calendar/event?eid=NG5wZHFydG82bzV0aG5xbGMydDRxcDlmczcgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "11na9kt0hnjhsqebq51dilo9fh",
       "date": "2026-04-11",
