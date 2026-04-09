@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-09T17:26:35.249Z",
+  "fetchedAt": "2026-04-09T17:51:16.390Z",
   "gigs": [
     {
       "id": "11na9kt0hnjhsqebq51dilo9fh",
@@ -421,6 +421,20 @@
       "location": "",
       "description": "Cass floated this as a fun weekend - some sort of fishing festival. Will get more details later",
       "htmlLink": "https://www.google.com/calendar/event?eid=MTZvczI5ZTQxcGhrNDhhM2tndjFxbWppdHEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "75im6p326tj32b9l6op6cb9k6cp38bb26ti30b9jckp32c9kcpi6ad9jck",
+      "date": "2026-08-15",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-08-16",
+      "bands": [],
+      "venue": "Anoka Food Truck Fest",
+      "status": "unmatched",
+      "title": "Mark @ Anoka Food Truck Fest",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NzVpbTZwMzI2dGozMmI5bDZvcDZjYjlrNmNwMzhiYjI2dGkzMGI5amNrcDMyYzlrY3BpNmFkOWpjayBkNXM1ZmNwaGhhZm0wbnZnY2VrMjVvOWsxOEBn"
     },
     {
       "id": "138vae630inh62gtcdpepkmtrj",
