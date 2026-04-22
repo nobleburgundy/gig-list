@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-22T18:25:37.628Z",
+  "fetchedAt": "2026-04-22T18:51:47.245Z",
   "gigs": [
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20260501",
@@ -405,6 +405,22 @@
       "location": "",
       "description": "Cass floated this as a fun weekend - some sort of fishing festival. Will get more details later",
       "htmlLink": "https://www.google.com/calendar/event?eid=MTZvczI5ZTQxcGhrNDhhM2tndjFxbWppdHEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "319u8rlue2ecgi3v3ck1sd49h3",
+      "date": "2026-08-13",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-08-14",
+      "bands": [
+        "td"
+      ],
+      "venue": "TD at 331 Club",
+      "status": "hold",
+      "title": "(H) TD at 331 Club",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MzE5dThybHVlMmVjZ2kzdjNjazFzZDQ5aDMgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "75im6p326tj32b9l6op6cb9k6cp38bb26ti30b9jckp32c9kcpi6ad9jck",
