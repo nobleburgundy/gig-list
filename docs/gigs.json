@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-23T13:35:23.945Z",
+  "fetchedAt": "2026-04-23T14:47:51.721Z",
   "gigs": [
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20260501",
@@ -493,22 +493,6 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=MnZqaXI5NzFzdnE5YWliY3VwYmZjZHJsczIgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "686aosn3d5fqrqh6ilnbfgritc",
-      "date": "2026-08-30",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-08-31",
-      "bands": [
-        "td"
-      ],
-      "venue": "Carlos Creek",
-      "status": "hold",
-      "title": "(H) TD @ Carlos Creek",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=Njg2YW9zbjNkNWZxcnFoNmlsbmJmZ3JpdGMgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "69h62cr4c9ij0b9j6sqj6b9k60oj8b9pc5j3eb9h6lgj2e1kcdi66pj660",
