@@ -157,6 +157,8 @@
       line-height: 1;
     }
     .icon-btn:active { color: var(--text); }
+    #btn-toggle-cal { display: flex; align-items: center; }
+    #btn-toggle-cal.active { color: var(--accent); }
     #btn-settings { font-size: 1.375rem; }
 
     /* ---- Inputs ---- */
@@ -327,6 +329,21 @@
       text-transform: uppercase;
       color: var(--text3);
     }
+    .col-cal    { width: 36px; flex-shrink: 0; }
+    .gig-cal    { width: 36px; flex-shrink: 0; display: flex; align-items: center; justify-content: flex-end; }
+    .pl-cal     { width: 36px; flex-shrink: 0; display: flex; align-items: center; justify-content: flex-end; }
+    .cal-btn {
+      background: none;
+      border: none;
+      color: var(--text3);
+      width: 24px; height: 24px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; padding: 0; flex-shrink: 0;
+      transition: color 0.15s;
+    }
+    .cal-btn:hover  { color: var(--text); }
+    .cal-btn:active { color: var(--text); }
+    .gig-cal.hidden, .pl-cal.hidden { display: none; }
 
 
     .month-header {
@@ -688,6 +705,7 @@
           <button class="view-toggle-btn active" id="btn-mode-gig">Gig</button>
           <button class="view-toggle-btn" id="btn-mode-list">List</button>
         </div>
+        <button class="icon-btn" id="btn-toggle-cal" title="Show Add to Calendar buttons"></button>
         <button class="icon-btn" id="btn-refresh" title="Refresh">&#8635;</button>
         <button class="icon-btn" id="btn-settings" title="Settings">&#9881;</button>
       </div>
@@ -704,6 +722,7 @@
             <span class="col-venue">Title</span>
             <span class="col-band">Band</span>
             <span class="col-status">Status</span>
+            <span class="col-cal"></span>
           </div>
         </div>
         <div class="scroll-area" id="gig-list-scroll">
@@ -834,9 +853,24 @@
             <div class="field-hint">Font used throughout the app.</div>
           </div>
           <div class="field-wrap">
-            <label class="field-label" for="s-font-size">Font size &mdash; <span id="s-font-size-label">16px</span></label>
-            <input type="range" id="s-font-size" min="12" max="20" step="1" value="16" style="width:100%;margin-top:8px;accent-color:var(--text);">
+            <label class="field-label" for="s-font-size">Font size</label>
+            <select class="field-select" id="s-font-size">
+              <option value="12">12px</option>
+              <option value="14">14px</option>
+              <option value="16" selected>16px</option>
+              <option value="18">18px</option>
+              <option value="20">20px</option>
+              <option value="24">24px</option>
+            </select>
             <div class="field-hint">Adjust for readability. Changes apply immediately.</div>
+          </div>
+          <div class="field-wrap" style="margin-bottom:0">
+            <label class="field-label">Add to calendar buttons</label>
+            <div class="view-toggle" style="margin-top:6px">
+              <button class="view-toggle-btn" id="pref-cal-off" data-cal="off">Off</button>
+              <button class="view-toggle-btn" id="pref-cal-on" data-cal="on">On</button>
+            </div>
+            <div class="field-hint">Show a button on each gig to add it to your device's calendar.</div>
           </div>
         </div>
 
@@ -850,6 +884,8 @@
   </div>
 
   <script>
+    const CAL_ICON = `<svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="0.6" y="1.8" width="11.8" height="10.6" rx="1.2"/><line x1="3.6" y1="0.6" x2="3.6" y2="3"/><line x1="9.4" y1="0.6" x2="9.4" y2="3"/><line x1="0.6" y1="5" x2="12.4" y2="5"/><line x1="6.5" y1="7.2" x2="6.5" y2="10.8"/><line x1="4.7" y1="9" x2="8.3" y2="9"/></svg>`;
+
     // ---- Display Preferences (localStorage) ----
     const DISPLAY_PREFS_KEY = 'giglist_display_prefs';
 
@@ -873,10 +909,26 @@
       // Sync settings controls if they exist
       const fontSel = document.getElementById('s-font');
       if (fontSel) fontSel.value = font;
-      const sizeSlider = document.getElementById('s-font-size');
-      if (sizeSlider) { sizeSlider.value = size; }
-      const sizeLabel = document.getElementById('s-font-size-label');
-      if (sizeLabel) sizeLabel.textContent = size + 'px';
+      const sizeSel = document.getElementById('s-font-size');
+      if (sizeSel) sizeSel.value = size;
+
+      // Cal buttons
+      applyCalButtonPref(p.calButtons === true);
+    }
+
+    function applyCalButtonPref(enabled) {
+      document.querySelectorAll('.gig-cal, .pl-cal').forEach(el => {
+        el.classList.toggle('hidden', !enabled);
+      });
+      const offBtn = document.getElementById('pref-cal-off');
+      const onBtn  = document.getElementById('pref-cal-on');
+      if (offBtn) offBtn.classList.toggle('active', !enabled);
+      if (onBtn)  onBtn.classList.toggle('active', enabled);
+      const topBtn = document.getElementById('btn-toggle-cal');
+      if (topBtn) {
+        topBtn.innerHTML = CAL_ICON;
+        topBtn.classList.toggle('active', enabled);
+      }
     }
 
     // Apply prefs immediately on load
@@ -887,6 +939,7 @@
     let gigsData = [];
     let activeBandFilter = 'all'; // 'all' | band id
     let displayMode = 'gig'; // 'gig' | 'list'
+    let gigMap = {}; // itemId → gig, used by cal buttons
 
     // ---- Routing ----
     function showView(id) {
@@ -1137,6 +1190,7 @@
 
         // Unique per-day ID so each day expands independently
         const itemId = isMultiDay ? `${gig.id}_${gig._dayOf}` : gig.id;
+        gigMap[itemId] = gigsData.find(g => g.id === gig.id) || gig;
 
         html += `
           <div class="gig-item" data-id="${escHtml(itemId)}">
@@ -1146,6 +1200,7 @@
               <div class="gig-venue">${escHtml(venue)}</div>
               <div class="${bandLabel(gig).cls}">${escHtml(bandLabel(gig).text)}</div>
               <div class="gig-status ${statusClass}">${statusLabel}</div>
+              <div class="gig-cal"><button class="cal-btn" data-id="${escHtml(itemId)}" title="Add to calendar">${CAL_ICON}</button></div>
             </div>
             <div class="gig-detail">
               ${detailRows}
@@ -1161,6 +1216,10 @@
           row.closest('.gig-item').classList.toggle('expanded');
         });
       });
+      container.querySelectorAll('.cal-btn').forEach(btn => {
+        btn.addEventListener('click', e => { e.stopPropagation(); downloadIcs(gigMap[btn.dataset.id]); });
+      });
+      applyCalButtonPref(loadDisplayPrefs().calButtons === true);
     }
 
     // ---- Render plain list ----
@@ -1205,19 +1264,92 @@
         const statusClass = gig.status === 'hold' ? 'hold' : 'confirmed';
         const statusLabel = gig.status === 'hold' ? 'Hold' : 'Confirmed';
 
+        const listItemId = `list_${gig.id}_${gig.date}`;
+        gigMap[listItemId] = gigsData.find(g => g.id === gig.id) || gig;
         html += `<div class="plain-list-row">
           <div class="pl-day">${dayStr}</div>
           <div class="pl-date">${dateStr}</div>
           <div class="pl-title">${title}</div>
           <div class="pl-band">${escHtml(bl.text)}</div>
           <div class="pl-status ${statusClass}">${statusLabel}</div>
+          <div class="pl-cal"><button class="cal-btn" data-id="${escHtml(listItemId)}" title="Add to calendar">${CAL_ICON}</button></div>
         </div>`;
       }
       container.innerHTML = html;
+      container.querySelectorAll('.cal-btn').forEach(btn => {
+        btn.addEventListener('click', e => { e.stopPropagation(); downloadIcs(gigMap[btn.dataset.id]); });
+      });
+      applyCalButtonPref(loadDisplayPrefs().calButtons === true);
     }
 
     function escHtml(str) {
       return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // ---- ICS / Add to Calendar ----
+    function generateIcs(gig) {
+      const pad = n => String(n).padStart(2, '0');
+
+      function toIcsDate(str) { return str.replace(/-/g, ''); }
+
+      function toIcsDateTime(isoStr) {
+        const d = new Date(isoStr);
+        return `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}T${pad(d.getHours())}${pad(d.getMinutes())}00`;
+      }
+
+      let dtStart, dtEnd;
+      if (gig.startTime) {
+        dtStart = `DTSTART:${toIcsDateTime(gig.startTime)}`;
+        dtEnd   = gig.endTime
+          ? `DTEND:${toIcsDateTime(gig.endTime)}`
+          : `DTEND:${toIcsDateTime(gig.startTime)}`;
+      } else {
+        dtStart = `DTSTART;VALUE=DATE:${toIcsDate(gig.date)}`;
+        let endStr;
+        if (gig.endDate) {
+          endStr = toIcsDate(gig.endDate);
+        } else {
+          const d = new Date(gig.date + 'T00:00:00');
+          d.setDate(d.getDate() + 1);
+          endStr = `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}`;
+        }
+        dtEnd = `DTEND;VALUE=DATE:${endStr}`;
+      }
+
+      const summary     = (gig.venue || gig.title || 'Gig').replace(/,/g, '\\,').replace(/;/g, '\\;');
+      const description = gig.description
+        ? gig.description.replace(/<[^>]+>/g, '').replace(/\n/g, '\\n').replace(/,/g, '\\,').replace(/;/g, '\\;')
+        : '';
+      const location    = (gig.location || '').replace(/,/g, '\\,').replace(/;/g, '\\;');
+
+      return [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Gig List//EN',
+        'BEGIN:VEVENT',
+        `UID:${gig.id}@giglist`,
+        dtStart,
+        dtEnd,
+        `SUMMARY:${summary}`,
+        description ? `DESCRIPTION:${description}` : '',
+        location    ? `LOCATION:${location}`        : '',
+        'END:VEVENT',
+        'END:VCALENDAR',
+      ].filter(Boolean).join('\r\n');
+    }
+
+    function downloadIcs(gig) {
+      if (!gig) return;
+      const blob = new Blob([generateIcs(gig)], { type: 'text/calendar;charset=utf-8' });
+      const url  = URL.createObjectURL(blob);
+      const a    = Object.assign(document.createElement('a'), {
+        href: url,
+        download: `${(gig.venue || gig.title || 'gig').replace(/[^a-z0-9]/gi, '-').toLowerCase()}.ics`,
+      });
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     }
 
     // ---- Fetch Gigs ----
@@ -1461,12 +1593,25 @@
       document.documentElement.style.setProperty('--font-family', this.value);
     });
 
-    // Font size slider
-    document.getElementById('s-font-size').addEventListener('input', function() {
+    // Font size dropdown
+    document.getElementById('s-font-size').addEventListener('change', function() {
       const size = parseInt(this.value, 10);
-      document.getElementById('s-font-size-label').textContent = size + 'px';
       document.documentElement.style.setProperty('--base-font-size', size + 'px');
       saveDisplayPref('fontSize', size);
+    });
+
+    // Cal button toggle (settings + top bar)
+    document.querySelectorAll('[data-cal]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const enabled = btn.dataset.cal === 'on';
+        saveDisplayPref('calButtons', enabled);
+        applyCalButtonPref(enabled);
+      });
+    });
+    document.getElementById('btn-toggle-cal').addEventListener('click', () => {
+      const enabled = !(loadDisplayPrefs().calButtons === true);
+      saveDisplayPref('calButtons', enabled);
+      applyCalButtonPref(enabled);
     });
 
     // Start
