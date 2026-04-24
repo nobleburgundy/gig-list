@@ -6,6 +6,9 @@
   <title>Gig List</title>
   <link rel="manifest" href="/manifest.json">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="Gig List">
@@ -21,6 +24,8 @@
       --hold:   #c47c00;
       --border: #e0e0e0;
       --accent: #1db954;
+      --font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      --base-font-size: 15px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -29,8 +34,8 @@
       height: 100%;
       background: var(--bg);
       color: var(--text);
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 14px;
+      font-family: var(--font-family);
+      font-size: var(--base-font-size);
       line-height: 1.4;
       overscroll-behavior: none;
       -webkit-text-size-adjust: 100%;
@@ -117,7 +122,7 @@
       background: var(--text);
       border: none;
       color: var(--bg);
-      font-family: 'Courier New', Courier, monospace;
+      font-family: inherit;
       font-size: 11px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -143,7 +148,7 @@
       background: none;
       border: none;
       color: var(--text3);
-      font-family: 'Courier New', Courier, monospace;
+      font-family: inherit;
       font-size: 14px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -162,7 +167,7 @@
       border: none;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      font-family: 'Courier New', Courier, monospace;
+      font-family: inherit;
       font-size: 14px;
       letter-spacing: 0.06em;
       outline: none;
@@ -486,7 +491,7 @@
       background: none;
       border: none;
       padding: 5px 10px;
-      font-family: 'Courier New', Courier, monospace;
+      font-family: inherit;
       font-size: 9px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -641,7 +646,7 @@
       border: none;
       border-bottom: 1px solid var(--border);
       color: var(--text);
-      font-family: 'Courier New', Courier, monospace;
+      font-family: inherit;
       font-size: 14px;
       letter-spacing: 0.06em;
       outline: none;
@@ -811,6 +816,30 @@
           </div>
         </div>
 
+        <!-- Display -->
+        <div class="settings-section-header" data-target="section-display">
+          Display
+          <span class="settings-chevron">&#9662;</span>
+        </div>
+        <div class="settings-body" id="section-display">
+          <div class="field-wrap">
+            <label class="field-label" for="s-font">Font</label>
+            <select class="field-select" id="s-font">
+              <option value="'IBM Plex Mono', 'Courier New', monospace">IBM Plex Mono</option>
+              <option value="'Inter', sans-serif">Inter</option>
+              <option value="'Lato', sans-serif">Lato</option>
+              <option value="'Merriweather', serif">Merriweather</option>
+              <option value="'Source Sans 3', sans-serif">Source Sans 3</option>
+            </select>
+            <div class="field-hint">Font used throughout the app.</div>
+          </div>
+          <div class="field-wrap">
+            <label class="field-label" for="s-font-size">Font size &mdash; <span id="s-font-size-label">15px</span></label>
+            <input type="range" id="s-font-size" min="12" max="20" step="1" value="15" style="width:100%;margin-top:8px;accent-color:var(--text);">
+            <div class="field-hint">Adjust for readability. Changes apply immediately.</div>
+          </div>
+        </div>
+
         <!-- Danger zone -->
         <div class="settings-danger">
           <a class="btn danger" href="/auth/logout">Disconnect Google Account</a>
@@ -821,6 +850,38 @@
   </div>
 
   <script>
+    // ---- Display Preferences (localStorage) ----
+    const DISPLAY_PREFS_KEY = 'giglist_display_prefs';
+
+    function loadDisplayPrefs() {
+      try { return JSON.parse(localStorage.getItem(DISPLAY_PREFS_KEY) || '{}'); } catch { return {}; }
+    }
+
+    function saveDisplayPref(key, val) {
+      const p = loadDisplayPrefs();
+      p[key] = val;
+      localStorage.setItem(DISPLAY_PREFS_KEY, JSON.stringify(p));
+    }
+
+    function applyDisplayPrefs() {
+      const p = loadDisplayPrefs();
+      const font = p.font || "'IBM Plex Mono', 'Courier New', monospace";
+      const size = p.fontSize || 15;
+      document.documentElement.style.setProperty('--font-family', font);
+      document.documentElement.style.setProperty('--base-font-size', size + 'px');
+
+      // Sync settings controls if they exist
+      const fontSel = document.getElementById('s-font');
+      if (fontSel) fontSel.value = font;
+      const sizeSlider = document.getElementById('s-font-size');
+      if (sizeSlider) { sizeSlider.value = size; }
+      const sizeLabel = document.getElementById('s-font-size-label');
+      if (sizeLabel) sizeLabel.textContent = size + 'px';
+    }
+
+    // Apply prefs immediately on load
+    applyDisplayPrefs();
+
     // ---- State ----
     let currentView = null;
     let gigsData = [];
@@ -1358,6 +1419,7 @@
 
     document.getElementById('btn-settings').addEventListener('click', () => {
       loadSettings();
+      applyDisplayPrefs(); // sync sliders/selects each time settings opens
       showView('view-settings');
     });
 
@@ -1391,6 +1453,20 @@
           if (e.key === 'Enter') { e.preventDefault(); el.blur(); }
         });
       }
+    });
+
+    // Font picker
+    document.getElementById('s-font').addEventListener('change', function() {
+      saveDisplayPref('font', this.value);
+      document.documentElement.style.setProperty('--font-family', this.value);
+    });
+
+    // Font size slider
+    document.getElementById('s-font-size').addEventListener('input', function() {
+      const size = parseInt(this.value, 10);
+      document.getElementById('s-font-size-label').textContent = size + 'px';
+      document.documentElement.style.setProperty('--base-font-size', size + 'px');
+      saveDisplayPref('fontSize', size);
     });
 
     // Start
