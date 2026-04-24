@@ -685,9 +685,13 @@
   function applyPrefs() {
     const prefs = loadPrefs();
 
+    // URL param takes priority over saved pref
+    const urlView = new URLSearchParams(location.search).get('view');
+    const viewMode = (urlView === 'list' || urlView === 'gig') ? urlView : prefs.defaultView;
+
     // Default view
-    if (prefs.defaultView) {
-      displayMode = prefs.defaultView;
+    if (viewMode) {
+      displayMode = viewMode;
       document.getElementById('btn-mode-gig').classList.toggle('active', displayMode === 'gig');
       document.getElementById('btn-mode-list').classList.toggle('active', displayMode === 'list');
     }
