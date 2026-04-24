@@ -1022,11 +1022,12 @@
       if (!rail) return;
       const bands = (settingsData.bands || []);
 
-      let html = `<div class="filter-opt active" data-band="all">All</div>`;
+      const allTitle = bands.length ? bands.map(b => b.name).join(' & ') + ' Gigs' : 'All Gigs';
+      let html = `<div class="filter-opt active" data-band="all" title="${escHtml(allTitle)}">All</div>`;
       if (bands.length) {
         html += `<div class="filter-sep"></div>`;
         bands.forEach(b => {
-          html += `<div class="filter-opt" data-band="${escHtml(b.id)}">${escHtml(b.short || b.name)}</div>`;
+          html += `<div class="filter-opt" data-band="${escHtml(b.id)}" title="${escHtml(b.name + ' Gigs')}">${escHtml(b.short || b.name)}</div>`;
         });
       }
       rail.innerHTML = html;
