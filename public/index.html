@@ -25,7 +25,7 @@
       --border: #e0e0e0;
       --accent: #1db954;
       --font-family: 'IBM Plex Mono', 'Courier New', monospace;
-      --base-font-size: 15px;
+      --base-font-size: 16px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -99,7 +99,7 @@
       gap: 16px;
     }
     .top-bar-title {
-      font-size: 11px;
+      font-size: 0.6875rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--text2);
@@ -107,7 +107,7 @@
     .top-bar-stats {
       flex: 1;
       padding-left: 14px;
-      font-size: 10px;
+      font-size: 0.625rem;
       letter-spacing: 0.06em;
       color: var(--text3);
     }
@@ -123,7 +123,7 @@
       border: none;
       color: var(--bg);
       font-family: inherit;
-      font-size: 11px;
+      font-size: 0.6875rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       cursor: pointer;
@@ -149,7 +149,7 @@
       border: none;
       color: var(--text3);
       font-family: inherit;
-      font-size: 14px;
+      font-size: 0.875rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 4px 0;
@@ -157,7 +157,7 @@
       line-height: 1;
     }
     .icon-btn:active { color: var(--text); }
-    #btn-settings { font-size: 22px; }
+    #btn-settings { font-size: 1.375rem; }
 
     /* ---- Inputs ---- */
     .field {
@@ -168,7 +168,7 @@
       border-bottom: 1px solid var(--border);
       color: var(--text);
       font-family: inherit;
-      font-size: 14px;
+      font-size: 0.875rem;
       letter-spacing: 0.06em;
       outline: none;
       -webkit-appearance: none;
@@ -177,7 +177,7 @@
     .field:focus { border-bottom-color: var(--text); }
 
     .field-label {
-      font-size: 10px;
+      font-size: 0.625rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text3);
@@ -190,7 +190,7 @@
       position: absolute;
       right: 0;
       bottom: 12px;
-      font-size: 10px;
+      font-size: 0.625rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--accent);
@@ -211,21 +211,21 @@
       padding: 0 24px;
     }
     .auth-wordmark {
-      font-size: 11px;
+      font-size: 0.6875rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--text);
       margin-bottom: 6px;
     }
     .auth-subtitle {
-      font-size: 11px;
+      font-size: 0.6875rem;
       color: var(--text3);
       letter-spacing: 0.06em;
       margin-bottom: 40px;
     }
     .auth-error {
       margin-top: 16px;
-      font-size: 11px;
+      font-size: 0.6875rem;
       letter-spacing: 0.04em;
       color: var(--red);
       min-height: 16px;
@@ -250,7 +250,7 @@
     .filter-opt {
       padding: 10px 0;
       text-align: center;
-      font-size: 10px;
+      font-size: 0.625rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text3);
@@ -297,14 +297,14 @@
     .col-date {
       width: 118px;
       flex-shrink: 0;
-      font-size: 10px;
+      font-size: 0.625rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--text3);
     }
     .col-venue {
       flex: 1;
-      font-size: 10px;
+      font-size: 0.625rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--text3);
@@ -313,7 +313,7 @@
     .col-band {
       width: 54px;
       flex-shrink: 0;
-      font-size: 10px;
+      font-size: 0.625rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--text3);
@@ -322,7 +322,7 @@
       width: 82px;
       flex-shrink: 0;
       text-align: right;
-      font-size: 10px;
+      font-size: 0.625rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--text3);
@@ -331,7 +331,7 @@
 
     .month-header {
       padding: 10px 24px 8px;
-      font-size: 10px;
+      font-size: 0.625rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--text2);
@@ -358,7 +358,7 @@
 
     .gig-toggle {
       flex-shrink: 0;
-      font-size: 14px;
+      font-size: 0.875rem;
       color: var(--text3);
       margin-right: 12px;
       padding-top: 1px;
@@ -386,7 +386,7 @@
     .detail-label {
       width: 68px;
       flex-shrink: 0;
-      font-size: 10px;
+      font-size: 0.625rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--text3);
@@ -394,7 +394,7 @@
     }
     .detail-value {
       flex: 1;
-      font-size: 12px;
+      font-size: 0.75rem;
       letter-spacing: 0.03em;
       color: var(--text2);
       white-space: pre-wrap;
@@ -404,12 +404,12 @@
     .detail-value.muted { color: var(--text3); }
     .detail-row-notes .detail-value {
       color: var(--text);
-      font-size: 13px;
+      font-size: 0.8125rem;
     }
     .detail-link {
       display: inline-block;
       margin: 12px 24px 14px;
-      font-size: 10px;
+      font-size: 0.625rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--text3);
@@ -420,14 +420,14 @@
     .gig-date {
       width: 118px;
       flex-shrink: 0;
-      font-size: 11px;
+      font-size: 0.6875rem;
       letter-spacing: 0.07em;
       text-transform: uppercase;
       color: var(--text2);
       padding-top: 1px;
     }
     .gig-date .year-tag {
-      font-size: 10px;
+      font-size: 0.625rem;
       color: var(--text3);
       letter-spacing: 0.04em;
     }
@@ -441,7 +441,7 @@
 
     .gig-venue {
       flex: 1;
-      font-size: 13px;
+      font-size: 0.8125rem;
       letter-spacing: 0.03em;
       padding-right: 12px;
       padding-top: 1px;
@@ -454,7 +454,7 @@
     .gig-band {
       width: 54px;
       flex-shrink: 0;
-      font-size: 10px;
+      font-size: 0.625rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text2);
@@ -466,7 +466,7 @@
       width: 82px;
       flex-shrink: 0;
       text-align: right;
-      font-size: 10px;
+      font-size: 0.625rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding-top: 2px;
@@ -476,7 +476,7 @@
 
     .list-state-row {
       padding: 24px;
-      font-size: 12px;
+      font-size: 0.75rem;
       color: var(--text3);
       letter-spacing: 0.06em;
     }
@@ -492,7 +492,7 @@
       border: none;
       padding: 5px 10px;
       font-family: inherit;
-      font-size: 9px;
+      font-size: 0.5625rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--text3);
@@ -518,7 +518,7 @@
     .pl-day {
       width: 36px;
       flex-shrink: 0;
-      font-size: 10px;
+      font-size: 0.625rem;
       letter-spacing: 0.07em;
       text-transform: uppercase;
       color: var(--text3);
@@ -526,14 +526,14 @@
     .pl-date {
       width: 82px;
       flex-shrink: 0;
-      font-size: 11px;
+      font-size: 0.6875rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--text2);
     }
     .pl-title {
       flex: 1;
-      font-size: 12px;
+      font-size: 0.75rem;
       letter-spacing: 0.03em;
       color: var(--text);
       min-width: 0;
@@ -545,7 +545,7 @@
     .pl-band {
       width: 54px;
       flex-shrink: 0;
-      font-size: 10px;
+      font-size: 0.625rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text2);
@@ -554,7 +554,7 @@
       width: 82px;
       flex-shrink: 0;
       text-align: right;
-      font-size: 10px;
+      font-size: 0.625rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
@@ -563,10 +563,10 @@
 
     @media (max-width: 540px) {
       .pl-band { display: none; }
-      .pl-day { width: 28px; font-size: 9px; }
-      .pl-date { width: 66px; font-size: 10px; }
-      .pl-title { font-size: 11px; }
-      .pl-status { width: 58px; font-size: 9px; }
+      .pl-day { width: 28px; font-size: 0.5625rem; }
+      .pl-date { width: 66px; font-size: 0.625rem; }
+      .pl-title { font-size: 0.6875rem; }
+      .pl-status { width: 58px; font-size: 0.5625rem; }
       .plain-list-row { padding-left: 12px; padding-right: 12px; }
     }
 
@@ -576,7 +576,7 @@
         width: 44px;
       }
       .filter-opt {
-        font-size: 9px;
+        font-size: 0.5625rem;
         letter-spacing: 0.06em;
         padding: 10px 0;
       }
@@ -588,7 +588,7 @@
       .col-date,
       .gig-date {
         width: 70px;
-        font-size: 9px;
+        font-size: 0.5625rem;
       }
       .col-band,
       .gig-band {
@@ -596,12 +596,12 @@
       }
       .col-venue,
       .gig-venue {
-        font-size: 11px;
+        font-size: 0.6875rem;
       }
       .col-status,
       .gig-status {
         width: 58px;
-        font-size: 9px;
+        font-size: 0.5625rem;
       }
       .month-header {
         padding: 8px 12px 6px;
@@ -614,7 +614,7 @@
       align-items: center;
       gap: 10px;
       padding: 16px 24px 12px;
-      font-size: 10px;
+      font-size: 0.625rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--text3);
@@ -623,7 +623,7 @@
       user-select: none;
     }
     .settings-chevron {
-      font-size: 14px;
+      font-size: 0.875rem;
       line-height: 1;
       transition: transform 0.2s;
       flex-shrink: 0;
@@ -647,7 +647,7 @@
       border-bottom: 1px solid var(--border);
       color: var(--text);
       font-family: inherit;
-      font-size: 14px;
+      font-size: 0.875rem;
       letter-spacing: 0.06em;
       outline: none;
       -webkit-appearance: none;
@@ -657,7 +657,7 @@
 
     /* ---- Helper text ---- */
     .field-hint {
-      font-size: 11px;
+      font-size: 0.6875rem;
       color: var(--text3);
       letter-spacing: 0.04em;
       margin-top: 6px;
@@ -834,8 +834,8 @@
             <div class="field-hint">Font used throughout the app.</div>
           </div>
           <div class="field-wrap">
-            <label class="field-label" for="s-font-size">Font size &mdash; <span id="s-font-size-label">15px</span></label>
-            <input type="range" id="s-font-size" min="12" max="20" step="1" value="15" style="width:100%;margin-top:8px;accent-color:var(--text);">
+            <label class="field-label" for="s-font-size">Font size &mdash; <span id="s-font-size-label">16px</span></label>
+            <input type="range" id="s-font-size" min="12" max="20" step="1" value="16" style="width:100%;margin-top:8px;accent-color:var(--text);">
             <div class="field-hint">Adjust for readability. Changes apply immediately.</div>
           </div>
         </div>
@@ -866,7 +866,7 @@
     function applyDisplayPrefs() {
       const p = loadDisplayPrefs();
       const font = p.font || "'IBM Plex Mono', 'Courier New', monospace";
-      const size = p.fontSize || 15;
+      const size = p.fontSize || 16;
       document.documentElement.style.setProperty('--font-family', font);
       document.documentElement.style.setProperty('--base-font-size', size + 'px');
 

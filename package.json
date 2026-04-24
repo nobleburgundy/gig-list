@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "start:local": "npx serve docs",
     "dev": "nodemon server.js",
     "fetch": "node scripts/fetch-gigs.js"
   },
