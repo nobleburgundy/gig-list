@@ -1,50 +1,6 @@
 {
-  "fetchedAt": "2026-04-02T15:24:30.453Z",
+  "fetchedAt": "2026-04-24T15:54:56.896Z",
   "gigs": [
-    {
-      "id": "4npdqrto6o5thnqlc2t4qp9fs7",
-      "date": "2026-04-01",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-04-08",
-      "bands": [],
-      "venue": "No James",
-      "status": "unmatched",
-      "title": "No James",
-      "location": "",
-      "description": "Indianapolis for Final Four",
-      "htmlLink": "https://www.google.com/calendar/event?eid=NG5wZHFydG82bzV0aG5xbGMydDRxcDlmczcgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "11na9kt0hnjhsqebq51dilo9fh",
-      "date": "2026-04-11",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-04-12",
-      "bands": [],
-      "venue": "No Jay",
-      "status": "unmatched",
-      "title": "No Jay",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=MTFuYTlrdDBobmpoc3FlYnE1MWRpbG85ZmggZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "7da4am8bauj8a3sss13b9pcr8u",
-      "date": "2026-04-18",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-04-19",
-      "bands": [
-        "td"
-      ],
-      "venue": "Animales",
-      "status": "confirmed",
-      "title": "(C) TD @ Animales",
-      "location": "",
-      "description": "3-5p",
-      "htmlLink": "https://www.google.com/calendar/event?eid=N2RhNGFtOGJhdWo4YTNzc3MxM2I5cGNyOHUgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20260501",
       "date": "2026-05-01",
@@ -74,7 +30,7 @@
       "status": "confirmed",
       "title": "(C) TD at Pleasant Grove",
       "location": "",
-      "description": "$450\nBring PA\n\nThey have basic sound; speakers on sticks, a few cords, a couple mics with stands so you'll want to probably bring most of all of what you normally would if you were providing sound.",
+      "description": "$450\nBring PA\n\nThey have basic sound; speakers on sticks, a few cords, a couple mics with stands so you'll want to probably bring most of all of what you normally would if you were providing sound.\n\n\nSat May 2 (seafood boil; this is a ticketed event, closed to the public. 5:30pm-8:30pm)",
       "htmlLink": "https://www.google.com/calendar/event?eid=M2Nlbm5sZzBqa3B1a3A0ZG5wcWNtb2U3ZHEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
@@ -97,13 +53,29 @@
       "startTime": null,
       "endTime": null,
       "endDate": "2026-05-17",
-      "bands": [],
+      "bands": [
+        "feds"
+      ],
       "venue": "Jay and Mel tie the knot",
       "status": "hold",
       "title": "(H) Jay and Mel tie the knot ",
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=MWt0dnNlb3VlaDMzaHM1ZDRiOHY4cjRrbDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "2sss27686gslpkga2f4o33qm0v",
+      "date": "2026-05-22",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-05-25",
+      "bands": [],
+      "venue": "No James",
+      "status": "unmatched",
+      "title": "No James (SF)",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MnNzczI3Njg2Z3NscGtnYTJmNG8zM3FtMHYgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "25ofidgb5i8vrcpfshgltem623",
@@ -118,6 +90,20 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=MjVvZmlkZ2I1aTh2cmNwZnNoZ2x0ZW02MjMgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "70r3cc9p61i3ebb36dgj4b9kc8pm4bb26dgmcbb168s68pb26tgj8oppco",
+      "date": "2026-05-23",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-05-24",
+      "bands": [],
+      "venue": "State Fair",
+      "status": "unmatched",
+      "title": "Mark @ State Fair",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NzByM2NjOXA2MWkzZWJiMzZkZ2o0YjlrYzhwbTRiYjI2ZGdtY2JiMTY4czY4cGIyNnRnajhvcHBjbyBkNXM1ZmNwaGhhZm0wbnZnY2VrMjVvOWsxOEBn"
     },
     {
       "id": "_6ksjae9p6t334b9j8gsj6b9k8533eba2890k8b9j6t2jee2260p3id1p8k",
@@ -421,6 +407,36 @@
       "htmlLink": "https://www.google.com/calendar/event?eid=MTZvczI5ZTQxcGhrNDhhM2tndjFxbWppdHEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
+      "id": "319u8rlue2ecgi3v3ck1sd49h3",
+      "date": "2026-08-13",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-08-14",
+      "bands": [
+        "td"
+      ],
+      "venue": "TD at 331 Club",
+      "status": "confirmed",
+      "title": "(C) TD at 331 Club",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MzE5dThybHVlMmVjZ2kzdjNjazFzZDQ5aDMgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "75im6p326tj32b9l6op6cb9k6cp38bb26ti30b9jckp32c9kcpi6ad9jck",
+      "date": "2026-08-15",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-08-16",
+      "bands": [],
+      "venue": "Anoka Food Truck Fest",
+      "status": "unmatched",
+      "title": "Mark @ Anoka Food Truck Fest",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NzVpbTZwMzI2dGozMmI5bDZvcDZjYjlrNmNwMzhiYjI2dGkzMGI5amNrcDMyYzlrY3BpNmFkOWpjayBkNXM1ZmNwaGhhZm0wbnZnY2VrMjVvOWsxOEBn"
+    },
+    {
       "id": "138vae630inh62gtcdpepkmtrj",
       "date": "2026-08-19",
       "startTime": null,
@@ -477,22 +493,6 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=MnZqaXI5NzFzdnE5YWliY3VwYmZjZHJsczIgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "686aosn3d5fqrqh6ilnbfgritc",
-      "date": "2026-08-30",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-08-31",
-      "bands": [
-        "td"
-      ],
-      "venue": "Carlos Creek",
-      "status": "hold",
-      "title": "(H) TD @ Carlos Creek",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=Njg2YW9zbjNkNWZxcnFoNmlsbmJmZ3JpdGMgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "69h62cr4c9ij0b9j6sqj6b9k60oj8b9pc5j3eb9h6lgj2e1kcdi66pj660",
