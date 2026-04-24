@@ -6,6 +6,9 @@
   <title>Gig List</title>
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg:     #ffffff;
@@ -17,6 +20,8 @@
       --hold:   #c47c00;
       --border: #e0e0e0;
       --accent: #1db954;
+      --font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      --base-font-size: 15px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -25,8 +30,8 @@
       height: 100%;
       background: var(--bg);
       color: var(--text);
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 14px;
+      font-family: var(--font-family);
+      font-size: var(--base-font-size);
       line-height: 1.4;
       overscroll-behavior: none;
       -webkit-text-size-adjust: 100%;
@@ -92,7 +97,7 @@
     .icon-btn {
       background: none; border: none;
       color: var(--text3);
-      font-family: 'Courier New', Courier, monospace;
+      font-family: inherit;
       font-size: 14px; letter-spacing: 0.1em;
       padding: 4px 0; cursor: pointer; line-height: 1;
     }
@@ -103,7 +108,7 @@
     .view-toggle-btn {
       background: none; border: none;
       padding: 5px 10px;
-      font-family: 'Courier New', Courier, monospace;
+      font-family: inherit;
       font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--text3); cursor: pointer;
       transition: background 0.1s, color 0.1s;
@@ -253,7 +258,7 @@
     .pref-toggle-btn {
       background: none; border: none;
       padding: 8px 18px;
-      font-family: 'Courier New', Courier, monospace;
+      font-family: inherit;
       font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--text3); cursor: pointer;
       transition: background 0.1s, color 0.1s;
@@ -358,6 +363,29 @@
         </div>
 
       </div>
+
+      <div class="settings-section-header">Font</div>
+      <div class="settings-body">
+
+        <div class="field-wrap">
+          <label class="field-label" for="s-font">Typeface</label>
+          <select id="s-font" style="width:100%;padding:10px 0;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);font-family:inherit;font-size:inherit;letter-spacing:0.06em;outline:none;-webkit-appearance:none;cursor:pointer;">
+            <option value="'IBM Plex Mono', 'Courier New', monospace">IBM Plex Mono</option>
+            <option value="'Inter', sans-serif">Inter</option>
+            <option value="'Lato', sans-serif">Lato</option>
+            <option value="'Merriweather', serif">Merriweather</option>
+            <option value="'Source Sans 3', sans-serif">Source Sans 3</option>
+          </select>
+          <div class="field-hint">Font used throughout the app.</div>
+        </div>
+
+        <div class="field-wrap" style="margin-bottom:0">
+          <label class="field-label" for="s-font-size">Font size &mdash; <span id="s-font-size-label">15px</span></label>
+          <input type="range" id="s-font-size" min="12" max="20" step="1" value="15" style="width:100%;margin-top:8px;accent-color:var(--text);">
+          <div class="field-hint">Adjust for readability. Changes apply immediately.</div>
+        </div>
+
+      </div>
     </div>
   </div>
 
@@ -375,6 +403,25 @@
     p[key] = val;
     localStorage.setItem(PREFS_KEY, JSON.stringify(p));
   }
+
+  // ---- Display Preferences ----
+  function applyDisplayPrefs() {
+    const p = loadPrefs();
+    const font = p.font || "'IBM Plex Mono', 'Courier New', monospace";
+    const size = p.fontSize || 15;
+    document.documentElement.style.setProperty('--font-family', font);
+    document.documentElement.style.setProperty('--base-font-size', size + 'px');
+
+    const fontSel = document.getElementById('s-font');
+    if (fontSel) fontSel.value = font;
+    const sizeSlider = document.getElementById('s-font-size');
+    if (sizeSlider) sizeSlider.value = size;
+    const sizeLabel = document.getElementById('s-font-size-label');
+    if (sizeLabel) sizeLabel.textContent = size + 'px';
+  }
+
+  // Apply immediately to avoid flash
+  applyDisplayPrefs();
 
   // ---- State ----
   let gigsData         = [];
@@ -707,8 +754,20 @@
   });
   document.getElementById('btn-refresh').addEventListener('click', loadData);
 
-  document.getElementById('btn-settings').addEventListener('click', openSettings);
+  document.getElementById('btn-settings').addEventListener('click', () => { applyDisplayPrefs(); openSettings(); });
   document.getElementById('btn-back').addEventListener('click', closeSettings);
+
+  document.getElementById('s-font').addEventListener('change', function() {
+    savePref('font', this.value);
+    document.documentElement.style.setProperty('--font-family', this.value);
+  });
+
+  document.getElementById('s-font-size').addEventListener('input', function() {
+    const size = parseInt(this.value, 10);
+    document.getElementById('s-font-size-label').textContent = size + 'px';
+    document.documentElement.style.setProperty('--base-font-size', size + 'px');
+    savePref('fontSize', size);
+  });
 
   // Pref: default view toggle
   document.querySelectorAll('#pref-view-toggle .pref-toggle-btn').forEach(btn => {
