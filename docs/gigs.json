@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-28T19:03:03.882Z",
+  "fetchedAt": "2026-04-28T20:01:44.604Z",
   "gigs": [
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20260501",
@@ -32,6 +32,20 @@
       "location": "",
       "description": "$450\nBring PA\n\nThey have basic sound; speakers on sticks, a few cords, a couple mics with stands so you'll want to probably bring most of all of what you normally would if you were providing sound.\n\n\nSat May 2 (seafood boil; this is a ticketed event, closed to the public. 5:30pm-8:30pm)",
       "htmlLink": "https://www.google.com/calendar/event?eid=M2Nlbm5sZzBqa3B1a3A0ZG5wcWNtb2U3ZHEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "35o1isp36gts9tleeqpt7kq1if",
+      "date": "2026-05-05",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-05-08",
+      "bands": [],
+      "venue": "Mark - 1215 Site Visit",
+      "status": "unmatched",
+      "title": "Mark - 1215 Site Visit",
+      "location": "Toyota Motor North America R&D Headquarters, 8777 S Platt Rd, Saline, MI 48176, USA",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MzVvMWlzcDM2Z3RzOXRsZWVxcHQ3a3ExaWYgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "1a39ghh08f17ffirubqs3akl7s",
