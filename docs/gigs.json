@@ -1,20 +1,6 @@
 {
-  "fetchedAt": "2026-05-06T18:00:52.950Z",
+  "fetchedAt": "2026-05-06T19:05:33.795Z",
   "gigs": [
-    {
-      "id": "35o1isp36gts9tleeqpt7kq1if",
-      "date": "2026-05-05",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-05-08",
-      "bands": [],
-      "venue": "Mark - 1215 Site Visit",
-      "status": "unmatched",
-      "title": "Mark - 1215 Site Visit",
-      "location": "Toyota Motor North America R&D Headquarters, 8777 S Platt Rd, Saline, MI 48176, USA",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=MzVvMWlzcDM2Z3RzOXRsZWVxcHQ3a3ExaWYgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "1a39ghh08f17ffirubqs3akl7s",
       "date": "2026-05-08",
