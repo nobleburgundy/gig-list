@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-11T00:41:26.462Z",
+  "fetchedAt": "2026-05-11T01:38:32.460Z",
   "gigs": [
     {
       "id": "1a39ghh08f17ffirubqs3akl7s",
@@ -104,6 +104,20 @@
       "location": "",
       "description": "Reminder for everyone to update the Feds availability calendar.",
       "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNjA2MDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "_60okcda28gr32b9i6csjgb9k650k6b9p61332ba168r32h1j85136cpi6c",
+      "date": "2026-06-04",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-06-09",
+      "bands": [],
+      "venue": "No James",
+      "status": "unmatched",
+      "title": "No James",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=XzYwb2tjZGEyOGdyMzJiOWk2Y3NqZ2I5azY1MGs2YjlwNjEzMzJiYTE2OHIzMmgxajg1MTM2Y3BpNmMgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "039c9mp60e0cgnjr3siup22tha",
