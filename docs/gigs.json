@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-17T04:48:03.816Z",
+  "fetchedAt": "2026-05-17T06:06:47.050Z",
   "gigs": [
     {
       "id": "1a39ghh08f17ffirubqs3akl7s",
@@ -14,22 +14,6 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=MWEzOWdoaDA4ZjE3ZmZpcnVicXMzYWtsN3MgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "1ktvseoueh33hs5d4b8v8r4kl1",
-      "date": "2026-05-16",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-05-17",
-      "bands": [
-        "feds"
-      ],
-      "venue": "Jay and Mel tie the knot",
-      "status": "hold",
-      "title": "(H) Jay and Mel tie the knot ",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=MWt0dnNlb3VlaDMzaHM1ZDRiOHY4cjRrbDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "2sss27686gslpkga2f4o33qm0v",
