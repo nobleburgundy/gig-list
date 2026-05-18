@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-18T01:43:02.666Z",
+  "fetchedAt": "2026-05-18T03:10:35.147Z",
   "gigs": [
     {
       "id": "1a39ghh08f17ffirubqs3akl7s",
@@ -548,6 +548,22 @@
       "htmlLink": "https://www.google.com/calendar/event?eid=cm9vdnEwZjY5aXZoYXQ1cnBqZzFpdGo0dW8gZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
+      "id": "7akn6dk8cj51bgb772jnondfvl",
+      "date": "2026-09-17",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-09-18",
+      "bands": [
+        "feds"
+      ],
+      "venue": "Aster",
+      "status": "hold",
+      "title": "(h) Feds at Aster",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=N2FrbjZkazhjajUxYmdiNzcyam5vbmRmdmwgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
       "id": "5id3dn0i7g6ficv2savdokbha8",
       "date": "2026-09-18",
       "startTime": null,
@@ -606,6 +622,22 @@
       "location": "",
       "description": "Reminder for everyone to update the Feds availability calendar.",
       "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNjEwMDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "355duqmintft8adj0g1lueige1",
+      "date": "2026-10-16",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-10-17",
+      "bands": [
+        "feds"
+      ],
+      "venue": "Aster",
+      "status": "hold",
+      "title": "(h) Feds at Aster",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MzU1ZHVxbWludGZ0OGFkajBnMWx1ZWlnZTEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "0tud983t1p7vn8993hj402g39j",
