@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-05-31T21:48:11.566Z",
+  "fetchedAt": "2026-05-31T22:22:39.357Z",
   "gigs": [
     {
       "id": "_6ksjae9p6t334b9j8gsj6b9k8533eba2890k8b9j6t2jee2260p3id1p8k",
@@ -342,6 +342,22 @@
       "location": "",
       "description": "Reminder for everyone to update the Feds availability calendar.",
       "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNjA4MDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "_75242e1l60pk8ba561148b9k88s4cb9o8kp34ba488okchi18osjagq384",
+      "date": "2026-08-10",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-08-12",
+      "bands": [
+        "td"
+      ],
+      "venue": "TD recording",
+      "status": "hold",
+      "title": "(Hold) TD recording ",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=Xzc1MjQyZTFsNjBwazhiYTU2MTE0OGI5azg4czRjYjlvOGtwMzRiYTQ4OG9rY2hpMThvc2phZ3EzODQgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "319u8rlue2ecgi3v3ck1sd49h3",
