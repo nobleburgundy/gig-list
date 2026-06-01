@@ -1,22 +1,6 @@
 {
-  "fetchedAt": "2026-06-01T03:12:07.038Z",
+  "fetchedAt": "2026-06-01T05:11:41.492Z",
   "gigs": [
-    {
-      "id": "_6ksjae9p6t334b9j8gsj6b9k8533eba2890k8b9j6t2jee2260p3id1p8k",
-      "date": "2026-05-31",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-06-01",
-      "bands": [
-        "td"
-      ],
-      "venue": "White Squirrel 6-8",
-      "status": "confirmed",
-      "title": "(C) TD @ White Squirrel 6-8",
-      "location": "",
-      "description": "Switch Yard: 6\nTumbling Daisies: 7",
-      "htmlLink": "https://www.google.com/calendar/event?eid=XzZrc2phZTlwNnQzMzRiOWo4Z3NqNmI5azg1MzNlYmEyODkwazhiOWo2dDJqZWUyMjYwcDNpZDFwOGsgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20260601",
       "date": "2026-06-01",
@@ -816,6 +800,22 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=MWk5ZjgzNW82ZG9nZWx1cGp1dTJhbGFqZmMgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "hnfbgao21b99svg5e65gpe14jk_20270601",
+      "date": "2027-06-01",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2027-06-02",
+      "bands": [
+        "feds"
+      ],
+      "venue": "[REMINDER] - update your Feds calendar!",
+      "status": "unmatched",
+      "title": "[REMINDER] - update your Feds calendar!",
+      "location": "",
+      "description": "Reminder for everyone to update the Feds availability calendar.",
+      "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNzA2MDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     }
   ]
 }
