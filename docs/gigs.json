@@ -1,20 +1,6 @@
 {
-  "fetchedAt": "2026-06-09T04:53:36.875Z",
+  "fetchedAt": "2026-06-09T06:24:30.050Z",
   "gigs": [
-    {
-      "id": "_60okcda28gr32b9i6csjgb9k650k6b9p61332ba168r32h1j85136cpi6c",
-      "date": "2026-06-04",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-06-09",
-      "bands": [],
-      "venue": "No James",
-      "status": "unmatched",
-      "title": "No James",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=XzYwb2tjZGEyOGdyMzJiOWk2Y3NqZ2I5azY1MGs2YjlwNjEzMzJiYTE2OHIzMmgxajg1MTM2Y3BpNmMgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "c9gjee9n64pjib9i64r6ab9k74s3ib9oc4qj6bb275i3gp1pcgomacho64",
       "date": "2026-06-08",
