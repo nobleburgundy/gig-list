@@ -1,20 +1,6 @@
 {
-  "fetchedAt": "2026-06-13T03:09:22.115Z",
+  "fetchedAt": "2026-06-13T05:01:32.009Z",
   "gigs": [
-    {
-      "id": "c9gjee9n64pjib9i64r6ab9k74s3ib9oc4qj6bb275i3gp1pcgomacho64",
-      "date": "2026-06-08",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-06-13",
-      "bands": [],
-      "venue": "Mark - 1215 Startup",
-      "status": "unmatched",
-      "title": "Mark - 1215 Startup",
-      "location": "Toyota Motor North America R&D Headquarters, 8777 S Platt Rd, Saline, MI 48176, USA",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=YzlnamVlOW42NHBqaWI5aTY0cjZhYjlrNzRzM2liOW9jNHFqNmJiMjc1aTNncDFwY2dvbWFjaG82NCBkNXM1ZmNwaGhhZm0wbnZnY2VrMjVvOWsxOEBn"
-    },
     {
       "id": "039c9mp60e0cgnjr3siup22tha",
       "date": "2026-06-10",
