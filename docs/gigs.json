@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-14T03:11:34.481Z",
+  "fetchedAt": "2026-06-14T05:08:30.157Z",
   "gigs": [
     {
       "id": "039c9mp60e0cgnjr3siup22tha",
@@ -14,20 +14,6 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=MDM5YzltcDYwZTBjZ25qcjNzaXVwMjJ0aGEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "qmmfol0e80schc22jg9fakcftg",
-      "date": "2026-06-12",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-06-14",
-      "bands": [],
-      "venue": "No Jay",
-      "status": "unmatched",
-      "title": "No Jay",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=cW1tZm9sMGU4MHNjaGMyMmpnOWZha2NmdGcgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "70o3iphj74qj4b9hccrj0b9kccr62bb26kr3gb9i68p3ip1lcosjgoj2ck",
