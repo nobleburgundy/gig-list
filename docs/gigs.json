@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-15T21:31:33.135Z",
+  "fetchedAt": "2026-06-15T22:42:32.641Z",
   "gigs": [
     {
       "id": "039c9mp60e0cgnjr3siup22tha",
@@ -687,43 +687,11 @@
         "td"
       ],
       "venue": "Dusty's",
-      "status": "hold",
-      "title": "(h) TD at Dusty's",
+      "status": "confirmed",
+      "title": "(C) TD at Dusty's",
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=M3RpdDFqdDlwdjlwN2Y3M25kYW0xdm9sa2wgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "7h0u4m77q03jbv7pf5it4oflso",
-      "date": "2026-11-14",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-11-15",
-      "bands": [
-        "td"
-      ],
-      "venue": "Dusty's",
-      "status": "hold",
-      "title": "(h) TD at Dusty's",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=N2gwdTRtNzdxMDNqYnY3cGY1aXQ0b2Zsc28gZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "3l0nvq1a1gu7ofrtlp4a9q8rt0",
-      "date": "2026-11-28",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-11-29",
-      "bands": [
-        "td"
-      ],
-      "venue": "Dusty's",
-      "status": "hold",
-      "title": "(h) TD at Dusty's",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=M2wwbnZxMWExZ3U3b2ZydGxwNGE5cThydDAgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20261201",
@@ -740,54 +708,6 @@
       "location": "",
       "description": "Reminder for everyone to update the Feds availability calendar.",
       "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNjEyMDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "60me2p1nqlfbkpjq55cv9rruo7",
-      "date": "2026-12-05",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-12-06",
-      "bands": [
-        "td"
-      ],
-      "venue": "Dusty's",
-      "status": "hold",
-      "title": "(h) TD at Dusty's",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=NjBtZTJwMW5xbGZia3BqcTU1Y3Y5cnJ1bzcgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "0qcibuolu2a9eotst8ocg2qslm",
-      "date": "2026-12-12",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-12-13",
-      "bands": [
-        "td"
-      ],
-      "venue": "Dusty's",
-      "status": "hold",
-      "title": "(h) TD at Dusty's",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=MHFjaWJ1b2x1MmE5ZW90c3Q4b2NnMnFzbG0gZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "53skdr4hc6v8sbm58p17276ap0",
-      "date": "2026-12-26",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-12-27",
-      "bands": [
-        "td"
-      ],
-      "venue": "Dusty's",
-      "status": "hold",
-      "title": "(h) TD at Dusty's",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=NTNza2RyNGhjNnY4c2JtNThwMTcyNzZhcDAgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20270101",
