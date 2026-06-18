@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-06-18T03:47:14.855Z",
+  "fetchedAt": "2026-06-18T05:37:54.380Z",
   "gigs": [
     {
       "id": "039c9mp60e0cgnjr3siup22tha",
@@ -14,20 +14,6 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=MDM5YzltcDYwZTBjZ25qcjNzaXVwMjJ0aGEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "70o3iphj74qj4b9hccrj0b9kccr62bb26kr3gb9i68p3ip1lcosjgoj2ck",
-      "date": "2026-06-15",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-06-18",
-      "bands": [],
-      "venue": "Mark - Cass Lake",
-      "status": "unmatched",
-      "title": "Mark - Cass Lake",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=NzBvM2lwaGo3NHFqNGI5aGNjcmowYjlrY2NyNjJiYjI2a3IzZ2I5aTY4cDNpcDFsY29zamdvajJjayBkNXM1ZmNwaGhhZm0wbnZnY2VrMjVvOWsxOEBn"
     },
     {
       "id": "3oma9e7m439vkfp06m57q716tc",
