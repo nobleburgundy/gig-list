@@ -1,20 +1,6 @@
 {
-  "fetchedAt": "2026-06-25T04:52:49.989Z",
+  "fetchedAt": "2026-06-25T06:24:09.673Z",
   "gigs": [
-    {
-      "id": "039c9mp60e0cgnjr3siup22tha",
-      "date": "2026-06-10",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-06-25",
-      "bands": [],
-      "venue": "No Ben",
-      "status": "unmatched",
-      "title": "No Ben",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=MDM5YzltcDYwZTBjZ25qcjNzaXVwMjJ0aGEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "2e83k2gqi3o41s15ar5mb0cbdf",
       "date": "2026-06-23",
