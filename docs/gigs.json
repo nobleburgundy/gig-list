@@ -1,20 +1,6 @@
 {
-  "fetchedAt": "2026-06-29T03:11:11.897Z",
+  "fetchedAt": "2026-06-29T05:04:57.700Z",
   "gigs": [
-    {
-      "id": "2e83k2gqi3o41s15ar5mb0cbdf",
-      "date": "2026-06-23",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-06-29",
-      "bands": [],
-      "venue": "No James - ABQ",
-      "status": "unmatched",
-      "title": "No James - ABQ",
-      "location": "",
-      "description": "At brother in-law's wedding in Albuquerque",
-      "htmlLink": "https://www.google.com/calendar/event?eid=MmU4M2syZ3FpM280MXMxNWFyNW1iMGNiZGYgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "52a9ir1gmh9p9rnck6tt8hbmn3",
       "date": "2026-06-29",
