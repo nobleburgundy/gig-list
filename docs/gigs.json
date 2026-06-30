@@ -1,22 +1,6 @@
 {
-  "fetchedAt": "2026-06-30T04:52:43.819Z",
+  "fetchedAt": "2026-06-30T06:27:26.839Z",
   "gigs": [
-    {
-      "id": "52a9ir1gmh9p9rnck6tt8hbmn3",
-      "date": "2026-06-29",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-06-30",
-      "bands": [
-        "feds"
-      ],
-      "venue": "Edina City Event",
-      "status": "confirmed",
-      "title": "(C) Feds @ Edina City Event",
-      "location": "Maetzold Amphitheater, Edina, MN 55435",
-      "description": "$500\n\nLoad-in: 5pm\nTime: 7:00-8:00 pm  \nLocation: Maetzold Amphitheater in Centennial Lakes Park\nThey have PA system\n\nDirections: \nTravel westbound on 76th St. W. between Endinborough Way & France Ave. S.\nYou may access the amphitheater for unloading through the curb cutout on 76th street and driving down the pathway\n\nOnce unloaded, you may park on 76th street or going around the block and parking in the lot located off France Ave.",
-      "htmlLink": "https://www.google.com/calendar/event?eid=NTJhOWlyMWdtaDlwOXJuY2s2dHQ4aGJtbjMgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "7fe9j8p3fvhc8o3al7do6v85a6",
       "date": "2026-07-01",
