@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-09T14:03:23.826Z",
+  "fetchedAt": "2026-07-09T17:00:14.313Z",
   "gigs": [
     {
       "id": "7fe9j8p3fvhc8o3al7do6v85a6",
@@ -690,6 +690,20 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=XzZrbzNjZTlsNjkxamFiYTU2c3E0NGI5azhjb2phYmEyOGNyM2ViYTY2c280OGgxazZrcjM0aGE2NmcgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "263lldsb64ij31pq1cuutjm867",
+      "date": "2027-02-24",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2027-03-01",
+      "bands": [],
+      "venue": "No James",
+      "status": "unmatched",
+      "title": "No James",
+      "location": "",
+      "description": "Birkie race in WI",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjYzbGxkc2I2NGlqMzFwcTFjdXV0am04NjcgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20270301",
