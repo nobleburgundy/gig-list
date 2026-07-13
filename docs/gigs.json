@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-13T20:14:26.347Z",
+  "fetchedAt": "2026-07-13T21:27:55.107Z",
   "gigs": [
     {
       "id": "7fe9j8p3fvhc8o3al7do6v85a6",
@@ -552,6 +552,20 @@
       "location": "41142 160th St, Waseca, MN 56093",
       "description": "$400\n\nThey have basic sound; speakers on sticks, a few cords, a couple mics with stands so you'll want to probably bring most of all of what you normally would if you were providing sound.\n\nBring PA - they have some speakers, but they weren't working last time we played there.",
       "htmlLink": "https://www.google.com/calendar/event?eid=N2tlYjJuMWVuMmR0dmdnZ3FkODlkYmgxNGIgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "_6co3ehhm6cskcba174s30b9k74qj8ba160r3gb9p651j8d256p0jcdhl70",
+      "date": "2026-10-22",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-10-26",
+      "bands": [],
+      "venue": "No James",
+      "status": "unmatched",
+      "title": "No James",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=XzZjbzNlaGhtNmNza2NiYTE3NHMzMGI5azc0cWo4YmExNjByM2diOXA2NTFqOGQyNTZwMGpjZGhsNzAgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "060arlct0e7rt8hn0p77n4ou0g",
