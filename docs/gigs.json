@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-17T02:35:13.549Z",
+  "fetchedAt": "2026-07-17T05:39:18.840Z",
   "gigs": [
     {
       "id": "7fe9j8p3fvhc8o3al7do6v85a6",
@@ -28,20 +28,6 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=OGFpamI4cWwxNjRnZGxsNnNpbnZkcmlidjggZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "0cq3jt20l4mvqiq2j6mbknvl46",
-      "date": "2026-07-13",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-07-17",
-      "bands": [],
-      "venue": "Mark - 1215 Startup Cont'd",
-      "status": "unmatched",
-      "title": "Mark - 1215 Startup Cont'd",
-      "location": "Toyota Motor North America R&D Headquarters, 8777 S Platt Rd, Saline, MI 48176, USA",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=MGNxM2p0MjBsNG12cWlxMmo2bWJrbnZsNDYgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "_8opkce9m6p23cb9p8l2k4b9k6134aba28crj0b9n75134h1o6krk8da28k",
