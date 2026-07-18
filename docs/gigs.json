@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-18T15:53:44.502Z",
+  "fetchedAt": "2026-07-18T16:54:07.465Z",
   "gigs": [
     {
       "id": "7fe9j8p3fvhc8o3al7do6v85a6",
@@ -582,6 +582,20 @@
       "location": "",
       "description": "\n---\nEvent Name: Dusty's Green Booth",
       "htmlLink": "https://www.google.com/calendar/event?eid=M3RpdDFqdDlwdjlwN2Y3M25kYW0xdm9sa2wgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "00qmbksm4vtmu3vhntk5tk0715",
+      "date": "2026-11-13",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-11-16",
+      "bands": [],
+      "venue": "No Jay",
+      "status": "unmatched",
+      "title": "No Jay",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MDBxbWJrc200dnRtdTN2aG50azV0azA3MTUgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20261201",
