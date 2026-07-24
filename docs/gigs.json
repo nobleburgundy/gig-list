@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-24T04:12:18.877Z",
+  "fetchedAt": "2026-07-24T07:05:25.031Z",
   "gigs": [
     {
       "id": "7fe9j8p3fvhc8o3al7do6v85a6",
@@ -14,20 +14,6 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=N2ZlOWo4cDNmdmhjOG8zYWw3ZG82djg1YTYgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "74pj2ohg6hhm6b9l6tgjgb9k68r6cb9occrj6bb56oqmcpb56pj34p9k6o",
-      "date": "2026-07-21",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-07-24",
-      "bands": [],
-      "venue": "Mark - 1084 FAT",
-      "status": "unmatched",
-      "title": "Mark - 1084 FAT",
-      "location": "Emerson Process Management, 7650 West 185th St Ste D, Tinley Park, IL 60477, USA",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=NzRwajJvaGc2aGhtNmI5bDZ0Z2pnYjlrNjhyNmNiOW9jY3JqNmJiNTZvcW1jcGI1NnBqMzRwOWs2byBkNXM1ZmNwaGhhZm0wbnZnY2VrMjVvOWsxOEBn"
     },
     {
       "id": "_6513gchl71244b9k6gp30b9k6h138ba16co30ba38d136ca36gsk8e9p68",
