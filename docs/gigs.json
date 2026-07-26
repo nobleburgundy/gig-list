@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-25T23:57:46.687Z",
+  "fetchedAt": "2026-07-26T03:20:54.150Z",
   "gigs": [
     {
       "id": "7fe9j8p3fvhc8o3al7do6v85a6",
@@ -134,20 +134,6 @@
       "location": "",
       "description": "eventName: Tumbling Daisies at 331 Club\ncover: Free",
       "htmlLink": "https://www.google.com/calendar/event?eid=MzE5dThybHVlMmVjZ2kzdjNjazFzZDQ5aDMgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "75im6p326tj32b9l6op6cb9k6cp38bb26ti30b9jckp32c9kcpi6ad9jck",
-      "date": "2026-08-15",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-08-16",
-      "bands": [],
-      "venue": "Anoka Food Truck Fest",
-      "status": "unmatched",
-      "title": "Mark @ Anoka Food Truck Fest",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=NzVpbTZwMzI2dGozMmI5bDZvcDZjYjlrNmNwMzhiYjI2dGkzMGI5amNrcDMyYzlrY3BpNmFkOWpjayBkNXM1ZmNwaGhhZm0wbnZnY2VrMjVvOWsxOEBn"
     },
     {
       "id": "_8orj2h9l6l24cb9h8p2jcb9k88qk4ba275238b9h6t236dpn6d342h9k64",
