@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-26T03:20:54.150Z",
+  "fetchedAt": "2026-07-26T06:20:00.667Z",
   "gigs": [
     {
       "id": "7fe9j8p3fvhc8o3al7do6v85a6",
@@ -28,20 +28,6 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=XzY1MTNnY2hsNzEyNDRiOWs2Z3AzMGI5azZoMTM4YmExNmNvMzBiYTM4ZDEzNmNhMzZnc2s4ZTlwNjggZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "2iidkgqom14enqi9r9764i367o",
-      "date": "2026-07-25",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-07-26",
-      "bands": [],
-      "venue": "No Jay",
-      "status": "unmatched",
-      "title": "No Jay (show pony - Lake Pepin)",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=MmlpZGtncW9tMTRlbnFpOXI5NzY0aTM2N28gZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "2vcrjkl52v33bpoo9rv5l4ck7a",
