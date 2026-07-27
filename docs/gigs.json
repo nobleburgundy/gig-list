@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-07-27T03:23:33.142Z",
+  "fetchedAt": "2026-07-27T06:48:18.759Z",
   "gigs": [
     {
       "id": "7fe9j8p3fvhc8o3al7do6v85a6",
@@ -14,20 +14,6 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=N2ZlOWo4cDNmdmhjOG8zYWw3ZG82djg1YTYgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "_6513gchl71244b9k6gp30b9k6h138ba16co30ba38d136ca36gsk8e9p68",
-      "date": "2026-07-24",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-07-27",
-      "bands": [],
-      "venue": "No James",
-      "status": "unmatched",
-      "title": "No James",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=XzY1MTNnY2hsNzEyNDRiOWs2Z3AzMGI5azZoMTM4YmExNmNvMzBiYTM4ZDEzNmNhMzZnc2s4ZTlwNjggZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "2vcrjkl52v33bpoo9rv5l4ck7a",
