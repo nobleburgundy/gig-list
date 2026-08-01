@@ -1,20 +1,6 @@
 {
-  "fetchedAt": "2026-08-01T03:59:11.465Z",
+  "fetchedAt": "2026-08-01T06:36:09.958Z",
   "gigs": [
-    {
-      "id": "7fe9j8p3fvhc8o3al7do6v85a6",
-      "date": "2026-07-01",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-08-01",
-      "bands": [],
-      "venue": "No Ben",
-      "status": "unmatched",
-      "title": "No Ben (tentative)",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=N2ZlOWo4cDNmdmhjOG8zYWw3ZG82djg1YTYgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "7feis80b5shc9tmqacq5ed4deg",
       "date": "2026-08-01",
@@ -684,6 +670,22 @@
       "location": "",
       "description": "Reminder for everyone to update the Feds availability calendar.",
       "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNzA3MDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "hnfbgao21b99svg5e65gpe14jk_20270801",
+      "date": "2027-08-01",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2027-08-02",
+      "bands": [
+        "feds"
+      ],
+      "venue": "[REMINDER] - update your Feds calendar!",
+      "status": "unmatched",
+      "title": "[REMINDER] - update your Feds calendar!",
+      "location": "",
+      "description": "Reminder for everyone to update the Feds availability calendar.",
+      "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNzA4MDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     }
   ]
 }
