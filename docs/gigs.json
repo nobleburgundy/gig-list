@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-05T20:36:01.077Z",
+  "fetchedAt": "2026-08-05T22:09:46.815Z",
   "gigs": [
     {
       "id": "7feis80b5shc9tmqacq5ed4deg",
@@ -198,20 +198,52 @@
       "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNjA5MDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
-      "id": "44q7gsvo4fik3s890uconohuhh",
+      "id": "1loffqlg92keb6eqs16jnv4pt9",
       "date": "2026-09-04",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-09-05",
+      "bands": [
+        "feds"
+      ],
+      "venue": "Feds Grand Marais",
+      "status": "confirmed",
+      "title": "(C) Feds Grand Marais",
+      "location": "",
+      "description": "Up Yonder",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MWxvZmZxbGc5MmtlYjZlcXMxNmpudjRwdDkgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "2pp4v4ac00c1pdq0comh8pp1dq",
+      "date": "2026-09-05",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-09-06",
+      "bands": [
+        "feds"
+      ],
+      "venue": "Feds Grand Marais",
+      "status": "confirmed",
+      "title": "(C) Feds Grand Marais",
+      "location": "",
+      "description": "Up Yonder night 2",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MnBwNHY0YWMwMGMxcGRxMGNvbWg4cHAxZHEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "0k83lklelagg2he54v1n2tl5ug",
+      "date": "2026-09-06",
       "startTime": null,
       "endTime": null,
       "endDate": "2026-09-07",
       "bands": [
         "feds"
       ],
-      "venue": "Feds Grand Marais?",
+      "venue": "Feds Grand Marais",
       "status": "confirmed",
-      "title": "(C) Feds Grand Marais?",
+      "title": "(C) Feds Grand Marais",
       "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=NDRxN2dzdm80ZmlrM3M4OTB1Y29ub2h1aGggZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+      "description": "Chill set on Sunday earlier in the day",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MGs4M2xrbGVsYWdnMmhlNTR2MW4ydGw1dWcgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "roovq0f69ivhat5rpjg1itj4uo",
@@ -251,8 +283,8 @@
         "feds"
       ],
       "venue": "Aster",
-      "status": "hold",
-      "title": "(h) Feds at Aster",
+      "status": "confirmed",
+      "title": "(C) Feds at Aster",
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=N2FrbjZkazhjajUxYmdiNzcyam5vbmRmdmwgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
