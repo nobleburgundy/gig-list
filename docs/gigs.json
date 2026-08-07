@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-06T14:52:13.834Z",
+  "fetchedAt": "2026-08-07T00:22:26.977Z",
   "gigs": [
     {
       "id": "7feis80b5shc9tmqacq5ed4deg",
@@ -60,7 +60,7 @@
       "status": "confirmed",
       "title": "(C) TD at 331 Club",
       "location": "",
-      "description": "eventName: Tumbling Daisies at 331 Club\ncover: Free",
+      "description": "Load-in: 9pm\nShow: 9:30\n\neventName: Tumbling Daisies at 331 Club\ncover: Free",
       "htmlLink": "https://www.google.com/calendar/event?eid=MzE5dThybHVlMmVjZ2kzdjNjazFzZDQ5aDMgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
@@ -152,20 +152,6 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=MnZqaXI5NzFzdnE5YWliY3VwYmZjZHJsczIgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "69h62cr4c9ij0b9j6sqj6b9k60oj8b9pc5j3eb9h6lgj2e1kcdi66pj660",
-      "date": "2026-08-30",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-08-31",
-      "bands": [],
-      "venue": "No Mark",
-      "status": "unmatched",
-      "title": "No Mark",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=NjloNjJjcjRjOWlqMGI5ajZzcWo2YjlrNjBvajhiOXBjNWozZWI5aDZsZ2oyZTFrY2RpNjZwajY2MCBkNXM1ZmNwaGhhZm0wbnZnY2VrMjVvOWsxOEBn"
     },
     {
       "id": "6orj4cpg6gsj4b9o6gs68b9k6csm6bb16tj32bb375h3id1j65im8pj46s",
