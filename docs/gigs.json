@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-10T15:57:02.055Z",
+  "fetchedAt": "2026-08-10T16:54:15.333Z",
   "gigs": [
     {
       "id": "_75242e1l60pk8ba561148b9k88s4cb9o8kp34ba488okchi18osjagq384",
@@ -348,6 +348,20 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=MWFzbDhxdjZtNXZpNjBzNm9kaHRtNWVlNWkgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "prug559fpq07utervlb99hd5i8",
+      "date": "2026-10-10",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-10-11",
+      "bands": [],
+      "venue": "HOLD Chris",
+      "status": "unmatched",
+      "title": "HOLD Chris",
+      "location": "",
+      "description": "Mariah wedding",
+      "htmlLink": "https://www.google.com/calendar/event?eid=cHJ1ZzU1OWZwcTA3dXRlcnZsYjk5aGQ1aTggZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "5ng9nn4b7p79brun2bt23pd6lj",
