@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-11T17:25:54.205Z",
+  "fetchedAt": "2026-08-11T18:23:36.689Z",
   "gigs": [
     {
       "id": "14h1atuibkc8v5opnm9v95egg8",
@@ -34,22 +34,6 @@
       "htmlLink": "https://www.google.com/calendar/event?eid=MzE5dThybHVlMmVjZ2kzdjNjazFzZDQ5aDMgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
-      "id": "_8orj2h9l6l24cb9h8p2jcb9k88qk4ba275238b9h6t236dpn6d342h9k64",
-      "date": "2026-08-18",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-08-20",
-      "bands": [
-        "td"
-      ],
-      "venue": "TD recording",
-      "status": "hold",
-      "title": "(h) TD recording ",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=XzhvcmoyaDlsNmwyNGNiOWg4cDJqY2I5azg4cWs0YmEyNzUyMzhiOWg2dDIzNmRwbjZkMzQyaDlrNjQgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
       "id": "138vae630inh62gtcdpepkmtrj",
       "date": "2026-08-19",
       "startTime": null,
@@ -76,22 +60,6 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=cGJnam5jcDYxc2RwbmkwMTN0Nm8yYXFsY2MgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "_752jid9j6osj4b9p6p13cb9k64s36b9o65332ba58cq44gi48coj0gph88",
-      "date": "2026-08-24",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-08-26",
-      "bands": [
-        "td"
-      ],
-      "venue": "TD recording",
-      "status": "hold",
-      "title": "(h) TD recording ",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=Xzc1MmppZDlqNm9zajRiOXA2cDEzY2I5azY0czM2YjlvNjUzMzJiYTU4Y3E0NGdpNDhjb2owZ3BoODggZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "11pudvn1b99mv5q4769vhfgcu8",
@@ -228,22 +196,6 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=NzFpMzRjcGw2b3AzZWI5cGNoajNjYjlrNnBqMzZiOXA3NWlqaWI5aGM1aGpncDFoY2hoNjZkMWw2NCBkNXM1ZmNwaGhhZm0wbnZnY2VrMjVvOWsxOEBn"
-    },
-    {
-      "id": "7akn6dk8cj51bgb772jnondfvl",
-      "date": "2026-09-17",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-09-18",
-      "bands": [
-        "feds"
-      ],
-      "venue": "Aster",
-      "status": "confirmed",
-      "title": "(C) Feds at Aster",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=N2FrbjZkazhjajUxYmdiNzcyam5vbmRmdmwgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "5id3dn0i7g6ficv2savdokbha8",
