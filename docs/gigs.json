@@ -1,22 +1,6 @@
 {
-  "fetchedAt": "2026-08-14T04:05:09.990Z",
+  "fetchedAt": "2026-08-14T05:53:46.793Z",
   "gigs": [
-    {
-      "id": "319u8rlue2ecgi3v3ck1sd49h3",
-      "date": "2026-08-13",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-08-14",
-      "bands": [
-        "td"
-      ],
-      "venue": "TD at 331 Club",
-      "status": "confirmed",
-      "title": "(C) TD at 331 Club",
-      "location": "",
-      "description": "Load-in: 9pm\nShow: 9:30\n\neventName: Tumbling Daisies at 331 Club\ncover: Free",
-      "htmlLink": "https://www.google.com/calendar/event?eid=MzE5dThybHVlMmVjZ2kzdjNjazFzZDQ5aDMgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "138vae630inh62gtcdpepkmtrj",
       "date": "2026-08-19",
