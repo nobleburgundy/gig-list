@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-16T13:53:22.422Z",
+  "fetchedAt": "2026-08-16T14:18:38.281Z",
   "gigs": [
     {
       "id": "138vae630inh62gtcdpepkmtrj",
@@ -434,6 +434,20 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=MDlrYjQ3ZWQyYWQxcm5uMHA3NjdoZ3Y5cm8gZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "62gq137fleu9udmfq88lnalsm9",
+      "date": "2026-12-24",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2027-01-02",
+      "bands": [],
+      "venue": "No Jay",
+      "status": "unmatched",
+      "title": "No Jay (CT)",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NjJncTEzN2ZsZXU5dWRtZnE4OGxuYWxzbTkgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20270101",
