@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-17T14:52:57.695Z",
+  "fetchedAt": "2026-08-17T15:21:05.742Z",
   "gigs": [
     {
       "id": "cpgm2oj26or64b9l64s3ab9k65hj8b9pc8s38bb3ccsj6or4cpj3acj568",
@@ -418,6 +418,22 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=MDBxbWJrc200dnRtdTN2aG50azV0azA3MTUgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "7pll74vct1r81o2mhr40js41eq",
+      "date": "2026-11-21",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-11-22",
+      "bands": [
+        "td"
+      ],
+      "venue": "White Squirell",
+      "status": "hold",
+      "title": "(h) TD at White Squirell",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=N3BsbDc0dmN0MXI4MW8ybWhyNDBqczQxZXEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20261201",
