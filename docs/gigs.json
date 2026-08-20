@@ -1,20 +1,6 @@
 {
-  "fetchedAt": "2026-08-20T04:33:03.977Z",
+  "fetchedAt": "2026-08-20T05:26:25.932Z",
   "gigs": [
-    {
-      "id": "cpgm2oj26or64b9l64s3ab9k65hj8b9pc8s38bb3ccsj6or4cpj3acj568",
-      "date": "2026-08-18",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-08-20",
-      "bands": [],
-      "venue": "Mark - 1215 Startup",
-      "status": "unmatched",
-      "title": "Mark - 1215 Startup (cont'd)",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=Y3BnbTJvajI2b3I2NGI5bDY0czNhYjlrNjVoajhiOXBjOHMzOGJiM2Njc2o2b3I0Y3BqM2FjajU2OCBkNXM1ZmNwaGhhZm0wbnZnY2VrMjVvOWsxOEBn"
-    },
     {
       "id": "138vae630inh62gtcdpepkmtrj",
       "date": "2026-08-19",
