@@ -1,34 +1,6 @@
 {
-  "fetchedAt": "2026-08-24T04:40:08.887Z",
+  "fetchedAt": "2026-08-24T05:34:47.389Z",
   "gigs": [
-    {
-      "id": "138vae630inh62gtcdpepkmtrj",
-      "date": "2026-08-19",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-08-24",
-      "bands": [],
-      "venue": "No Ben",
-      "status": "unmatched",
-      "title": "No Ben (WI)",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=MTM4dmFlNjMwaW5oNjJndGNkcGVwa210cmogZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "pbgjncp61sdpni013t6o2aqlcc",
-      "date": "2026-08-21",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-08-24",
-      "bands": [],
-      "venue": "No Jay",
-      "status": "unmatched",
-      "title": "No Jay",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=cGJnam5jcDYxc2RwbmkwMTN0Nm8yYXFsY2MgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "11pudvn1b99mv5q4769vhfgcu8",
       "date": "2026-08-27",
