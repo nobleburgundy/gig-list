@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-28T05:05:04.644Z",
+  "fetchedAt": "2026-08-28T17:35:05.573Z",
   "gigs": [
     {
       "id": "2vjir971svq9aibcupbfcdrls2",
@@ -58,7 +58,7 @@
       "status": "confirmed",
       "title": "(C) Feds Grand Marais",
       "location": "",
-      "description": "Up Yonder",
+      "description": "Up Yonder\n8pm - 11",
       "htmlLink": "https://www.google.com/calendar/event?eid=MWxvZmZxbGc5MmtlYjZlcXMxNmpudjRwdDkgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
@@ -74,7 +74,7 @@
       "status": "confirmed",
       "title": "(C) Feds Grand Marais",
       "location": "",
-      "description": "Up Yonder night 2",
+      "description": "Up Yonder night 2\n8pm - 11",
       "htmlLink": "https://www.google.com/calendar/event?eid=MnBwNHY0YWMwMGMxcGRxMGNvbWg4cHAxZHEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
@@ -90,7 +90,7 @@
       "status": "confirmed",
       "title": "(C) Feds Grand Marais",
       "location": "",
-      "description": "Chill set on Sunday earlier in the day",
+      "description": "Chill set on Sunday earlier in the day\n5pm - 8",
       "htmlLink": "https://www.google.com/calendar/event?eid=MGs4M2xrbGVsYWdnMmhlNTR2MW4ydGw1dWcgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
@@ -436,6 +436,22 @@
       "location": "",
       "description": "Reminder for everyone to update the Feds availability calendar.",
       "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNzAxMDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "0kfthfuod1638ps06d3t4oteir",
+      "date": "2027-01-02",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2027-01-03",
+      "bands": [
+        "td"
+      ],
+      "venue": "White Squirrel",
+      "status": "confirmed",
+      "title": "(c) TD at White Squirrel",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MGtmdGhmdW9kMTYzOHBzMDZkM3Q0b3RlaXIgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20270201",
