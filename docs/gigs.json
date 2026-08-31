@@ -1,20 +1,6 @@
 {
-  "fetchedAt": "2026-08-31T00:44:34.016Z",
+  "fetchedAt": "2026-08-31T06:37:46.635Z",
   "gigs": [
-    {
-      "id": "2vjir971svq9aibcupbfcdrls2",
-      "date": "2026-08-28",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-08-31",
-      "bands": [],
-      "venue": "No Ben",
-      "status": "unmatched",
-      "title": "No Ben",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=MnZqaXI5NzFzdnE5YWliY3VwYmZjZHJsczIgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "6orj4cpg6gsj4b9o6gs68b9k6csm6bb16tj32bb375h3id1j65im8pj46s",
       "date": "2026-08-31",
