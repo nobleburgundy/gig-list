@@ -1,20 +1,6 @@
 {
-  "fetchedAt": "2026-09-01T00:21:45.339Z",
+  "fetchedAt": "2026-09-01T05:26:45.081Z",
   "gigs": [
-    {
-      "id": "6orj4cpg6gsj4b9o6gs68b9k6csm6bb16tj32bb375h3id1j65im8pj46s",
-      "date": "2026-08-31",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-09-01",
-      "bands": [],
-      "venue": "Tommy James & Herman's Hermits",
-      "status": "unmatched",
-      "title": "Mark @ Tommy James & Herman's Hermits",
-      "location": "Minnesota State Fair Grandstand, Fairground Grandstand, 1265 Snelling Ave, Falcon Heights, MN 55108, USA",
-      "description": "7pm\netix",
-      "htmlLink": "https://www.google.com/calendar/event?eid=Nm9yajRjcGc2Z3NqNGI5bzZnczY4YjlrNmNzbTZiYjE2dGozMmJiMzc1aDNpZDFqNjVpbThwajQ2cyBkNXM1ZmNwaGhhZm0wbnZnY2VrMjVvOWsxOEBn"
-    },
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20260901",
       "date": "2026-09-01",
@@ -594,6 +580,22 @@
       "location": "",
       "description": "Reminder for everyone to update the Feds availability calendar.",
       "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNzA4MDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "hnfbgao21b99svg5e65gpe14jk_20270901",
+      "date": "2027-09-01",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2027-09-02",
+      "bands": [
+        "feds"
+      ],
+      "venue": "[REMINDER] - update your Feds calendar!",
+      "status": "unmatched",
+      "title": "[REMINDER] - update your Feds calendar!",
+      "location": "",
+      "description": "Reminder for everyone to update the Feds availability calendar.",
+      "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNzA5MDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     }
   ]
 }
