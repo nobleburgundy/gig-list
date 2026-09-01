@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-01T15:03:09.427Z",
+  "fetchedAt": "2026-09-01T18:42:14.068Z",
   "gigs": [
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20260901",
@@ -64,6 +64,22 @@
       "location": "",
       "description": "Chill set on Sunday earlier in the day\n5pm - 8",
       "htmlLink": "https://www.google.com/calendar/event?eid=MGs4M2xrbGVsYWdnMmhlNTR2MW4ydGw1dWcgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "6d7kjn2vsq6qr6uiem1ge7qffh",
+      "date": "2026-09-10",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-09-11",
+      "bands": [
+        "td"
+      ],
+      "venue": "TD Studio at 4pm",
+      "status": "confirmed",
+      "title": "(c) TD Studio at 4pm",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NmQ3a2puMnZzcTZxcjZ1aWVtMWdlN3FmZmggZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "roovq0f69ivhat5rpjg1itj4uo",
