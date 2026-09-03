@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-03T09:25:48.780Z",
+  "fetchedAt": "2026-09-03T13:45:36.828Z",
   "gigs": [
     {
       "id": "1loffqlg92keb6eqs16jnv4pt9",
@@ -14,7 +14,7 @@
       "status": "confirmed",
       "title": "(C) Feds Grand Marais",
       "location": "",
-      "description": "Up Yonder\n8pm - 11",
+      "description": "Up Yonder\nFri: 8p - 11\nSat: 8-11\nSun: 5p - 8",
       "htmlLink": "https://www.google.com/calendar/event?eid=MWxvZmZxbGc5MmtlYjZlcXMxNmpudjRwdDkgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
@@ -30,7 +30,7 @@
       "status": "confirmed",
       "title": "(C) Feds Grand Marais",
       "location": "",
-      "description": "Up Yonder night 2\n8pm - 11",
+      "description": "Fri: 8p - 11\nSat: 8-11\nSun: 5p - 8",
       "htmlLink": "https://www.google.com/calendar/event?eid=MnBwNHY0YWMwMGMxcGRxMGNvbWg4cHAxZHEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
@@ -106,7 +106,7 @@
       "status": "confirmed",
       "title": "(C) Feds Grape Stomp Carlos Creek",
       "location": "",
-      "description": "Friday: <br>Saturday: <strong><b>Jack’s Public House Stage 3-6:30</b></strong>",
+      "description": "Jacks Pub Stage\nFri: 4-7\nSat: 3-6:30\n",
       "htmlLink": "https://www.google.com/calendar/event?eid=NWlkM2RuMGk3ZzZmaWN2MnNhdmRva2JoYTggZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
