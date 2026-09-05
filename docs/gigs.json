@@ -1,22 +1,6 @@
 {
-  "fetchedAt": "2026-09-05T04:47:19.715Z",
+  "fetchedAt": "2026-09-05T08:47:04.889Z",
   "gigs": [
-    {
-      "id": "1loffqlg92keb6eqs16jnv4pt9",
-      "date": "2026-09-04",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-09-05",
-      "bands": [
-        "feds"
-      ],
-      "venue": "Feds Grand Marais",
-      "status": "confirmed",
-      "title": "(C) Feds Grand Marais",
-      "location": "",
-      "description": "Up Yonder\nFri: 8p - 11\nSat: 8-11\nSun: 5p - 8",
-      "htmlLink": "https://www.google.com/calendar/event?eid=MWxvZmZxbGc5MmtlYjZlcXMxNmpudjRwdDkgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "2pp4v4ac00c1pdq0comh8pp1dq",
       "date": "2026-09-05",
