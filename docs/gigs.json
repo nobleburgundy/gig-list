@@ -1,22 +1,6 @@
 {
-  "fetchedAt": "2026-09-06T01:11:31.234Z",
+  "fetchedAt": "2026-09-06T06:16:13.087Z",
   "gigs": [
-    {
-      "id": "2pp4v4ac00c1pdq0comh8pp1dq",
-      "date": "2026-09-05",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-09-06",
-      "bands": [
-        "feds"
-      ],
-      "venue": "Feds Grand Marais",
-      "status": "confirmed",
-      "title": "(C) Feds Grand Marais",
-      "location": "",
-      "description": "Fri: 8p - 11\nSat: 8-11\nSun: 5p - 8",
-      "htmlLink": "https://www.google.com/calendar/event?eid=MnBwNHY0YWMwMGMxcGRxMGNvbWg4cHAxZHEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "0k83lklelagg2he54v1n2tl5ug",
       "date": "2026-09-06",
