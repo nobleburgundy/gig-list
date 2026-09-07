@@ -1,22 +1,6 @@
 {
-  "fetchedAt": "2026-09-07T01:12:47.039Z",
+  "fetchedAt": "2026-09-07T06:24:19.331Z",
   "gigs": [
-    {
-      "id": "0k83lklelagg2he54v1n2tl5ug",
-      "date": "2026-09-06",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-09-07",
-      "bands": [
-        "feds"
-      ],
-      "venue": "Feds Grand Marais",
-      "status": "confirmed",
-      "title": "(C) Feds Grand Marais",
-      "location": "",
-      "description": "Chill set on Sunday earlier in the day\n5pm - 8",
-      "htmlLink": "https://www.google.com/calendar/event?eid=MGs4M2xrbGVsYWdnMmhlNTR2MW4ydGw1dWcgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "6d7kjn2vsq6qr6uiem1ge7qffh",
       "date": "2026-09-10",
