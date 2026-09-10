@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-10T12:50:58.824Z",
+  "fetchedAt": "2026-09-10T16:52:47.576Z",
   "gigs": [
     {
       "id": "6d7kjn2vsq6qr6uiem1ge7qffh",
@@ -226,6 +226,20 @@
       "htmlLink": "https://www.google.com/calendar/event?eid=MDYwYXJsY3QwZTdydDhobjBwNzduNG91MGcgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
+      "id": "1d3qcabsdqfvl631ivc0r8mgas",
+      "date": "2026-10-31",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-11-01",
+      "bands": [],
+      "venue": "No Jay",
+      "status": "unmatched",
+      "title": "No Jay",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MWQzcWNhYnNkcWZ2bDYzMWl2YzByOG1nYXMgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
       "id": "hnfbgao21b99svg5e65gpe14jk_20261101",
       "date": "2026-11-01",
       "startTime": null,
@@ -240,6 +254,20 @@
       "location": "",
       "description": "Reminder for everyone to update the Feds availability calendar.",
       "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNjExMDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "54v5o0e3j0toj6on255o952012",
+      "date": "2026-11-06",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-11-07",
+      "bands": [],
+      "venue": "No Jay",
+      "status": "unmatched",
+      "title": "No Jay",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NTR2NW8wZTNqMHRvajZvbjI1NW85NTIwMTIgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "3tit1jt9pv9p7f73ndam1volkl",
@@ -286,6 +314,20 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=N3BsbDc0dmN0MXI4MW8ybWhyNDBqczQxZXEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "3ihvb9rrc0h5mhsdeu4n0siktl",
+      "date": "2026-11-25",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-11-30",
+      "bands": [],
+      "venue": "No Jay",
+      "status": "unmatched",
+      "title": "No Jay",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=M2lodmI5cnJjMGg1bWhzZGV1NG4wc2lrdGwgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20261201",
