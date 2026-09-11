@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-11T21:50:04.338Z",
+  "fetchedAt": "2026-09-11T23:51:41.474Z",
   "gigs": [
     {
       "id": "roovq0f69ivhat5rpjg1itj4uo",
@@ -164,6 +164,22 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=MHR1ZDk4M3QxcDd2bjg5OTNoajQwMmczOWogZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "355herugtraqoio3dtnddrf08a",
+      "date": "2026-10-17",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2026-10-18",
+      "bands": [
+        "feds"
+      ],
+      "venue": "Wheaton American Legion",
+      "status": "confirmed",
+      "title": "(C) Feds at Wheaton American Legion",
+      "location": "",
+      "description": "8 to 11 pm\n$1500\nBring PA",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MzU1aGVydWd0cmFxb2lvM2R0bmRkcmYwOGEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "7keb2n1en2dtvgggqd89dbh14b",
