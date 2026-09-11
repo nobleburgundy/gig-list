@@ -1,22 +1,6 @@
 {
-  "fetchedAt": "2026-09-11T02:54:00.833Z",
+  "fetchedAt": "2026-09-11T07:46:11.262Z",
   "gigs": [
-    {
-      "id": "6d7kjn2vsq6qr6uiem1ge7qffh",
-      "date": "2026-09-10",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-09-11",
-      "bands": [
-        "td"
-      ],
-      "venue": "TD Studio at 4pm",
-      "status": "confirmed",
-      "title": "(c) TD Studio at 4pm",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=NmQ3a2puMnZzcTZxcjZ1aWVtMWdlN3FmZmggZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "roovq0f69ivhat5rpjg1itj4uo",
       "date": "2026-09-11",
