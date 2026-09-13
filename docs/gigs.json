@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-13T00:35:25.618Z",
+  "fetchedAt": "2026-09-13T05:37:53.583Z",
   "gigs": [
     {
       "id": "roovq0f69ivhat5rpjg1itj4uo",
@@ -14,20 +14,6 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=cm9vdnEwZjY5aXZoYXQ1cnBqZzFpdGo0dW8gZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "71i34cpl6op3eb9pchj3cb9k6pj36b9p75ijib9hc5hjgp1hchh66d1l64",
-      "date": "2026-09-12",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-09-13",
-      "bands": [],
-      "venue": "No Mark",
-      "status": "unmatched",
-      "title": "No Mark",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=NzFpMzRjcGw2b3AzZWI5cGNoajNjYjlrNnBqMzZiOXA3NWlqaWI5aGM1aGpncDFoY2hoNjZkMWw2NCBkNXM1ZmNwaGhhZm0wbnZnY2VrMjVvOWsxOEBn"
     },
     {
       "id": "5id3dn0i7g6ficv2savdokbha8",
