@@ -1,20 +1,6 @@
 {
-  "fetchedAt": "2026-09-14T00:41:34.361Z",
+  "fetchedAt": "2026-09-14T05:45:18.380Z",
   "gigs": [
-    {
-      "id": "roovq0f69ivhat5rpjg1itj4uo",
-      "date": "2026-09-11",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-09-14",
-      "bands": [],
-      "venue": "No Jay",
-      "status": "unmatched",
-      "title": "No Jay",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=cm9vdnEwZjY5aXZoYXQ1cnBqZzFpdGo0dW8gZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "5id3dn0i7g6ficv2savdokbha8",
       "date": "2026-09-18",
