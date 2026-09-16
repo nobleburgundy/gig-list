@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-16T18:17:41.185Z",
+  "fetchedAt": "2026-09-16T21:30:53.066Z",
   "gigs": [
     {
       "id": "5id3dn0i7g6ficv2savdokbha8",
@@ -182,20 +182,6 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=XzZjbzNlaGhtNmNza2NiYTE3NHMzMGI5azc0cWo4YmExNjByM2diOXA2NTFqOGQyNTZwMGpjZGhsNzAgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "060arlct0e7rt8hn0p77n4ou0g",
-      "date": "2026-10-24",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-10-25",
-      "bands": [],
-      "venue": "No Jay",
-      "status": "unmatched",
-      "title": "No Jay",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=MDYwYXJsY3QwZTdydDhobjBwNzduNG91MGcgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "1d3qcabsdqfvl631ivc0r8mgas",
