@@ -1,22 +1,6 @@
 {
-  "fetchedAt": "2026-09-21T00:23:36.535Z",
+  "fetchedAt": "2026-09-21T05:15:13.918Z",
   "gigs": [
-    {
-      "id": "5id3dn0i7g6ficv2savdokbha8",
-      "date": "2026-09-18",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-09-21",
-      "bands": [
-        "feds"
-      ],
-      "venue": "Feds Grape Stomp Carlos Creek",
-      "status": "confirmed",
-      "title": "(C) Feds Grape Stomp Carlos Creek",
-      "location": "",
-      "description": "Jacks Pub Stage\nFri: 4-7\nSat: 3-6:30\n",
-      "htmlLink": "https://www.google.com/calendar/event?eid=NWlkM2RuMGk3ZzZmaWN2MnNhdmRva2JoYTggZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "goh9c1gnpe12atkklpv4p4qp2o",
       "date": "2026-09-29",
