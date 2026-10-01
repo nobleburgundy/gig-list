@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-01T00:19:57.679Z",
+  "fetchedAt": "2026-10-01T06:19:11.345Z",
   "gigs": [
     {
       "id": "goh9c1gnpe12atkklpv4p4qp2o",
@@ -546,6 +546,22 @@
       "location": "",
       "description": "Reminder for everyone to update the Feds availability calendar.",
       "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNzA5MDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "hnfbgao21b99svg5e65gpe14jk_20271001",
+      "date": "2027-10-01",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2027-10-02",
+      "bands": [
+        "feds"
+      ],
+      "venue": "[REMINDER] - update your Feds calendar!",
+      "status": "unmatched",
+      "title": "[REMINDER] - update your Feds calendar!",
+      "location": "",
+      "description": "Reminder for everyone to update the Feds availability calendar.",
+      "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNzEwMDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     }
   ]
 }
