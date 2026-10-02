@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-02T02:25:47.851Z",
+  "fetchedAt": "2026-10-02T08:48:30.966Z",
   "gigs": [
     {
       "id": "goh9c1gnpe12atkklpv4p4qp2o",
@@ -28,22 +28,6 @@
       "location": "",
       "description": "TC Marathon",
       "htmlLink": "https://www.google.com/calendar/event?eid=NjZldDR0NjJwMjBjYmhqbDdqdWtwMmNra20gZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "hnfbgao21b99svg5e65gpe14jk_20261001",
-      "date": "2026-10-01",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-10-02",
-      "bands": [
-        "feds"
-      ],
-      "venue": "[REMINDER] - update your Feds calendar!",
-      "status": "unmatched",
-      "title": "[REMINDER] - update your Feds calendar!",
-      "location": "",
-      "description": "Reminder for everyone to update the Feds availability calendar.",
-      "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNjEwMDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "1asl8qv6m5vi60s6odhtm5ee5i",
