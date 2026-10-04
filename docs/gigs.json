@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-04T20:19:16.649Z",
+  "fetchedAt": "2026-10-04T23:26:08.936Z",
   "gigs": [
     {
       "id": "goh9c1gnpe12atkklpv4p4qp2o",
@@ -111,10 +111,10 @@
     },
     {
       "id": "_6co3ehhm6cskcba174s30b9k74qj8ba160r3gb9p651j8d256p0jcdhl70",
-      "date": "2026-10-22",
+      "date": "2026-10-29",
       "startTime": null,
       "endTime": null,
-      "endDate": "2026-10-26",
+      "endDate": "2026-11-02",
       "bands": [],
       "venue": "No James",
       "status": "unmatched",
