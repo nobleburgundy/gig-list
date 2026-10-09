@@ -1,20 +1,6 @@
 {
-  "fetchedAt": "2026-10-09T01:43:06.552Z",
+  "fetchedAt": "2026-10-09T08:26:43.874Z",
   "gigs": [
-    {
-      "id": "goh9c1gnpe12atkklpv4p4qp2o",
-      "date": "2026-09-29",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-10-09",
-      "bands": [],
-      "venue": "Chris Unavailable NORWAY",
-      "status": "unmatched",
-      "title": "Chris Unavailable NORWAY",
-      "location": "",
-      "description": "Chris turns 50 trip",
-      "htmlLink": "https://www.google.com/calendar/event?eid=Z29oOWMxZ25wZTEyYXRra2xwdjRwNHFwMm8gZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "prug559fpq07utervlb99hd5i8",
       "date": "2026-10-10",
