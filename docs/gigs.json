@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-16T19:37:20.127Z",
+  "fetchedAt": "2026-10-16T22:28:40.811Z",
   "gigs": [
     {
       "id": "0tud983t1p7vn8993hj402g39j",
@@ -154,20 +154,6 @@
       "htmlLink": "https://www.google.com/calendar/event?eid=N3BsbDc0dmN0MXI4MW8ybWhyNDBqczQxZXEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
-      "id": "3ihvb9rrc0h5mhsdeu4n0siktl",
-      "date": "2026-11-25",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-11-30",
-      "bands": [],
-      "venue": "No Jay",
-      "status": "unmatched",
-      "title": "No Jay",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=M2lodmI5cnJjMGg1bWhzZGV1NG4wc2lrdGwgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
       "id": "hnfbgao21b99svg5e65gpe14jk_20261201",
       "date": "2026-12-01",
       "startTime": null,
@@ -227,10 +213,10 @@
     },
     {
       "id": "62gq137fleu9udmfq88lnalsm9",
-      "date": "2026-12-24",
+      "date": "2026-12-22",
       "startTime": null,
       "endTime": null,
-      "endDate": "2027-01-02",
+      "endDate": "2026-12-28",
       "bands": [],
       "venue": "No Jay",
       "status": "unmatched",
@@ -238,6 +224,20 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=NjJncTEzN2ZsZXU5dWRtZnE4OGxuYWxzbTkgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "5n3bjkun603hftlpon9ukv68kn",
+      "date": "2026-12-31",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2027-01-01",
+      "bands": [],
+      "venue": "No Jay",
+      "status": "unmatched",
+      "title": "No Jay",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NW4zYmprdW42MDNoZnRscG9uOXVrdjY4a24gZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20270101",
