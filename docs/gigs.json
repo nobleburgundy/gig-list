@@ -1,38 +1,6 @@
 {
-  "fetchedAt": "2026-10-18T01:21:26.686Z",
+  "fetchedAt": "2026-10-18T06:18:57.317Z",
   "gigs": [
-    {
-      "id": "0tud983t1p7vn8993hj402g39j",
-      "date": "2026-10-17",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-10-18",
-      "bands": [
-        "feds"
-      ],
-      "venue": "Feds Carlos Creek Oktoberfest",
-      "status": "confirmed",
-      "title": "(C) Feds Carlos Creek Oktoberfest",
-      "location": "",
-      "description": "Showtime: 2:30-5:30",
-      "htmlLink": "https://www.google.com/calendar/event?eid=MHR1ZDk4M3QxcDd2bjg5OTNoajQwMmczOWogZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "355herugtraqoio3dtnddrf08a",
-      "date": "2026-10-17",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-10-18",
-      "bands": [
-        "feds"
-      ],
-      "venue": "Wheaton American Legion",
-      "status": "confirmed",
-      "title": "(C) Feds at Wheaton American Legion",
-      "location": "",
-      "description": "8 to 11 pm\n$1500\nBring PA",
-      "htmlLink": "https://www.google.com/calendar/event?eid=MzU1aGVydWd0cmFxb2lvM2R0bmRkcmYwOGEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "7keb2n1en2dtvgggqd89dbh14b",
       "date": "2026-10-18",
