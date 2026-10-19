@@ -1,20 +1,6 @@
 {
-  "fetchedAt": "2026-10-19T12:02:48.300Z",
+  "fetchedAt": "2026-10-19T18:47:09.544Z",
   "gigs": [
-    {
-      "id": "_6co3ehhm6cskcba174s30b9k74qj8ba160r3gb9p651j8d256p0jcdhl70",
-      "date": "2026-10-29",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-11-02",
-      "bands": [],
-      "venue": "No James",
-      "status": "unmatched",
-      "title": "No James",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=XzZjbzNlaGhtNmNza2NiYTE3NHMzMGI5azc0cWo4YmExNjByM2diOXA2NTFqOGQyNTZwMGpjZGhsNzAgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "1d3qcabsdqfvl631ivc0r8mgas",
       "date": "2026-10-31",
