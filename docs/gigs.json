@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-26T18:47:20.337Z",
+  "fetchedAt": "2026-10-26T23:00:40.784Z",
   "gigs": [
     {
       "id": "1d3qcabsdqfvl631ivc0r8mgas",
@@ -44,22 +44,6 @@
       "location": "",
       "description": "",
       "htmlLink": "https://www.google.com/calendar/event?eid=NTR2NW8wZTNqMHRvajZvbjI1NW85NTIwMTIgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
-    {
-      "id": "3tit1jt9pv9p7f73ndam1volkl",
-      "date": "2026-11-07",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-11-08",
-      "bands": [
-        "td"
-      ],
-      "venue": "Dusty's",
-      "status": "confirmed",
-      "title": "(C) TD at Dusty's",
-      "location": "",
-      "description": "\n---\nEvent Name: Tumbling Daisies at Dusty's Green Booth\nShowtime: 8pm\nCover: Free\nAge: 21+\nLineup: Tumbling Daisies\nEvent Image:",
-      "htmlLink": "https://www.google.com/calendar/event?eid=M3RpdDFqdDlwdjlwN2Y3M25kYW0xdm9sa2wgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "00qmbksm4vtmu3vhntk5tk0715",
