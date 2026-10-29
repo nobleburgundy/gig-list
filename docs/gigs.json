@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-29T14:34:13.928Z",
+  "fetchedAt": "2026-10-29T20:02:25.904Z",
   "gigs": [
     {
       "id": "1d3qcabsdqfvl631ivc0r8mgas",
@@ -240,6 +240,22 @@
       "location": "",
       "description": "Reminder for everyone to update the Feds availability calendar.",
       "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNzA0MDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "577laab55ri5gfd1s7nshe2avu",
+      "date": "2027-04-10",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2027-04-11",
+      "bands": [
+        "td"
+      ],
+      "venue": "Dusty's",
+      "status": "hold",
+      "title": "(H) TD at Dusty's",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NTc3bGFhYjU1cmk1Z2ZkMXM3bnNoZTJhdnUgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20270501",
