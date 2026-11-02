@@ -1,22 +1,6 @@
 {
-  "fetchedAt": "2026-11-02T04:16:50.798Z",
+  "fetchedAt": "2026-11-02T12:44:27.618Z",
   "gigs": [
-    {
-      "id": "hnfbgao21b99svg5e65gpe14jk_20261101",
-      "date": "2026-11-01",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-11-02",
-      "bands": [
-        "feds"
-      ],
-      "venue": "[REMINDER] - update your Feds calendar!",
-      "status": "unmatched",
-      "title": "[REMINDER] - update your Feds calendar!",
-      "location": "",
-      "description": "Reminder for everyone to update the Feds availability calendar.",
-      "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNjExMDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "54v5o0e3j0toj6on255o952012",
       "date": "2026-11-06",
