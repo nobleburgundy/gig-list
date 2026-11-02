@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-02T12:44:27.618Z",
+  "fetchedAt": "2026-11-02T22:06:09.564Z",
   "gigs": [
     {
       "id": "54v5o0e3j0toj6on255o952012",
@@ -213,10 +213,10 @@
     },
     {
       "id": "577laab55ri5gfd1s7nshe2avu",
-      "date": "2027-04-10",
+      "date": "2027-04-03",
       "startTime": null,
       "endTime": null,
-      "endDate": "2027-04-11",
+      "endDate": "2027-04-04",
       "bands": [
         "td"
       ],
@@ -304,6 +304,22 @@
       "location": "",
       "description": "Reminder for everyone to update the Feds availability calendar.",
       "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNzA4MDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "_6t1j0ha384s30b9o8kpkab9k6gsk2b9p6gok2ba18ko3ch1n6kq3ggq470",
+      "date": "2027-08-13",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2027-08-16",
+      "bands": [
+        "feds"
+      ],
+      "venue": "Silver Bay/Duluth/Grand Marais",
+      "status": "hold",
+      "title": "[hold] Feds at Silver Bay/Duluth/Grand Marais",
+      "location": "",
+      "description": "Email from a group in Silver Bay that puts on concerts in the summer. ",
+      "htmlLink": "https://www.google.com/calendar/event?eid=XzZ0MWowaGEzODRzMzBiOW84a3BrYWI5azZnc2syYjlwNmdvazJiYTE4a28zY2gxbjZrcTNnZ3E0NzAgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20270901",
