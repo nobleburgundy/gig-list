@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-09T08:22:50.073Z",
+  "fetchedAt": "2026-11-09T18:59:31.603Z",
   "gigs": [
     {
       "id": "70fak88iirhfs0f6me9701lqln",
@@ -20,7 +20,7 @@
       "date": "2026-11-13",
       "startTime": null,
       "endTime": null,
-      "endDate": "2026-11-16",
+      "endDate": "2026-11-15",
       "bands": [],
       "venue": "No Jay",
       "status": "unmatched",
@@ -288,6 +288,20 @@
       "location": "",
       "description": "Reminder for everyone to update the Feds availability calendar.",
       "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNzA3MDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "681ef10410emgd5bnu4tbm1rjk",
+      "date": "2027-07-30",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2027-08-08",
+      "bands": [],
+      "venue": "No Jay",
+      "status": "unmatched",
+      "title": "No Jay",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NjgxZWYxMDQxMGVtZ2Q1Ym51NHRibTFyamsgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20270801",
