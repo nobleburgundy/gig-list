@@ -1,20 +1,6 @@
 {
-  "fetchedAt": "2026-11-10T01:57:42.101Z",
+  "fetchedAt": "2026-11-10T09:27:35.342Z",
   "gigs": [
-    {
-      "id": "70fak88iirhfs0f6me9701lqln",
-      "date": "2026-11-05",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-11-10",
-      "bands": [],
-      "venue": "No James",
-      "status": "unmatched",
-      "title": "No James",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=NzBmYWs4OGlpcmhmczBmNm1lOTcwMWxxbG4gZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "00qmbksm4vtmu3vhntk5tk0715",
       "date": "2026-11-13",
