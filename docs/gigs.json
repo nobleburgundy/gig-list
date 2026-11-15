@@ -1,20 +1,6 @@
 {
-  "fetchedAt": "2026-11-15T01:10:10.559Z",
+  "fetchedAt": "2026-11-15T08:08:20.595Z",
   "gigs": [
-    {
-      "id": "00qmbksm4vtmu3vhntk5tk0715",
-      "date": "2026-11-13",
-      "startTime": null,
-      "endTime": null,
-      "endDate": "2026-11-15",
-      "bands": [],
-      "venue": "No Jay",
-      "status": "unmatched",
-      "title": "No Jay",
-      "location": "",
-      "description": "",
-      "htmlLink": "https://www.google.com/calendar/event?eid=MDBxbWJrc200dnRtdTN2aG50azV0azA3MTUgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
-    },
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20261201",
       "date": "2026-12-01",
