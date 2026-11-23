@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-23T10:17:17.411Z",
+  "fetchedAt": "2026-11-23T22:08:54.597Z",
   "gigs": [
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20261201",
@@ -244,6 +244,40 @@
       "location": "",
       "description": "Reminder for everyone to update the Feds availability calendar.",
       "htmlLink": "https://www.google.com/calendar/event?eid=aG5mYmdhbzIxYjk5c3ZnNWU2NWdwZTE0amtfMjAyNzA2MDEgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "753pnkstfff4ejqlrtgmb4ut2m",
+      "date": "2027-06-11",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2027-06-12",
+      "bands": [
+        "feds",
+        "td"
+      ],
+      "venue": "Feds or TD-Athens, WI",
+      "status": "hold",
+      "title": "(H) Feds or TD-Athens, WI",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NzUzcG5rc3RmZmY0ZWpxbHJ0Z21iNHV0Mm0gZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
+    },
+    {
+      "id": "4akhpe2m0e3cl67id350igb65r",
+      "date": "2027-06-19",
+      "startTime": null,
+      "endTime": null,
+      "endDate": "2027-06-20",
+      "bands": [
+        "feds",
+        "td"
+      ],
+      "venue": "Feds or TD-Athens, WI",
+      "status": "hold",
+      "title": "(H) Feds or TD-Athens, WI",
+      "location": "",
+      "description": "",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NGFraHBlMm0wZTNjbDY3aWQzNTBpZ2I2NXIgZDVzNWZjcGhoYWZtMG52Z2NlazI1bzlrMThAZw"
     },
     {
       "id": "hnfbgao21b99svg5e65gpe14jk_20270701",
